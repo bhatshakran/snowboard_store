@@ -27,6 +27,5 @@ export async function getStaticProps() {
     props: { snowboards },
   };
 }
-//  some random comment
 
 export default Home;
