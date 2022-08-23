@@ -2,8 +2,10 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import { client } from "../utils/client";
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ snowboards }: any) => {
+  console.log(snowboards);
   return (
     <div className={styles.container}>
       <Head>
@@ -18,5 +20,12 @@ const Home: NextPage = () => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const snowboards = await client.fetch(`*[_type == "snowboard"]`);
+  return {
+    props: { snowboards },
+  };
+}
 
 export default Home;
