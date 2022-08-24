@@ -102,5 +102,21 @@ export default createSchema({
         },
       ],
     },
+    {
+      title: "Images",
+      name: "images",
+      type: "document",
+      fields: [
+        {
+          name: "img",
+          title: "Img",
+          type: "object",
+          fields: [
+            { name: "logo", title: "Logo", type: "image" },
+            { name: "hero", title: "Hero", type: "image" },
+          ],
+        },
+      ],
+    },
   ]),
 });
