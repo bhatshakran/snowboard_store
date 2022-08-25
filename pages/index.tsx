@@ -5,8 +5,8 @@ import Hero from '../components/hero';
 import HomeNav from '../components/homeNav';
 import MountainCard from '../components/mountainCard';
 import { ContentType } from '../types';
-import { client } from '../utils/client';
 import Features from '../components/features';
+import Footer from '../components/footer';
 
 const Home: NextPage<ContentType> = ({ content }) => {
   return (
@@ -23,7 +23,7 @@ const Home: NextPage<ContentType> = ({ content }) => {
       <Display />
       <MountainCard />
       <Features />
-
+      <Footer />
       {/*  <main>
         <h2>New app here ✈️</h2>
       </main> */}

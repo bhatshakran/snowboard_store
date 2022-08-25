@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React, { FC } from 'react';
 
 interface FeaturesType {
-  features: { img: string; text: string }[];
+  features?: { img: string; text: string }[];
 }
 
 const Features: FC<FeaturesType> = ({ features }) => {
@@ -13,7 +13,7 @@ const Features: FC<FeaturesType> = ({ features }) => {
         <p className='text-4xl mt-8'>x</p>
       </div>
       <div className='features_cards flex flex-col md:flex-row my-12 mx-4 sm:mx-16 justify-center gap-x-2 gap-y-6'>
-        {features.map((feature, idx) => {
+        {features?.map((feature, idx) => {
           return (
             <div
               key={idx}

@@ -58,4 +58,8 @@
       height: 650px;
     }
   }
+
+  .footer_ul {
+    @apply mt-6 text-sm font-thin flex flex-col gap-y-4;
+  }
 }
