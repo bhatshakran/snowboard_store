@@ -7,7 +7,7 @@ import { DocLink, DocLinks } from '../types';
 const HomeNav: NextPage<DocLinks> = ({ links }) => {
   return (
     <nav>
-      <div className='bg-black h-12 w-full flex justify-between'>
+      <div className='bg-green-400 h-12 w-full flex justify-between'>
         <div className='flex items-center justify-evenly  w-3/5 max-w-lg h-full '>
           <Logo />
           {links && links.length > 0

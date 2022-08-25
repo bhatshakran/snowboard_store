@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className='bg-black min-h-60 mt-60 text-white flex flex-row flex-wrap w-full justify-evenly py-16 px-4 font-poppins'>
       <div className='w-1/2 md:w-1/6'>
-        <h2 className='text-xl text-red-400'>Products</h2>
+        <h2 className='text-xl text-green-400'>Products</h2>
         <ul className='footer_ul'>
           <li>
             <Link href='/'>Mens</Link>
@@ -19,7 +19,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className='w-1/2 md:w-1/6'>
-        <h2 className='text-xl text-red-400'>About</h2>
+        <h2 className='text-xl text-green-400'>About</h2>
         <ul className='footer_ul'>
           <li>
             <Link href='/'>Careers</Link>
@@ -36,7 +36,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className='w-1/2 md:w-1/6'>
-        <h2 className='text-xl text-red-400'>Customers</h2>
+        <h2 className='text-xl text-green-400'>Customers</h2>
         <ul className='footer_ul'>
           <li>
             <Link href='/'>Contact us</Link>
@@ -53,6 +53,8 @@ const Footer = () => {
         </ul>
       </div>
       <div className='w-1/2 md:w-2/6'>
+        <h2 className='text-xl text-green-400'>Newsletter</h2>
+
         <ul className='footer_ul'>
           <li>
             <input
@@ -60,14 +62,14 @@ const Footer = () => {
               name='email'
               id=''
               placeholder='someone@example.com'
-              className='bg-transparent focus:outline-none p-3 border border-red-400 w-60'
+              className='bg-transparent focus:outline-none p-3 border border-green-400 w-60'
             />
           </li>
           <li>
-            <Link href='/'>Womens</Link>
+            <Link href='/'>Facebook</Link>
           </li>
           <li>
-            <Link href='/'>Youth</Link>
+            <Link href='/'>Twitter</Link>
           </li>
         </ul>
       </div>
