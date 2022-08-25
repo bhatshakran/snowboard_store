@@ -6,4 +6,13 @@
   a {
     @apply text-white;
   }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('./fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  }
+  body {
+    @apply debug-screens;
+  }
+}
+@layer components {
 }
