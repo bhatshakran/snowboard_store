@@ -9,11 +9,17 @@ interface ProductType {
 const Display: FC<ProductType> = ({ products }) => {
   return (
     <>
+      <div className='mt-16 text-center  '>
+        <h1 className='text-5xl font-bold font-poppins'>Snowboards</h1>
+
+        <p className='text-4xl mt-8 font-arial'>x</p>
+      </div>
+
       <Carousel
         wrapAround={true}
         slidesToShow={2}
         autoplay={true}
-        className='mt-12'
+        className='mt-20'
         defaultControlsConfig={{
           /* nextButtonText: '>',
           prevButtonText: '<', */

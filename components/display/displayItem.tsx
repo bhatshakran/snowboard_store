@@ -15,7 +15,7 @@ const DisplayItem: FC<DetailsType> = ({ details }) => {
         <Image src={details.img_src} alt='card' width='200px' height='300px' />
       </div>
       <div className=' text-center mt-8'>
-        <h4 className='font-poppins'>{details.name}</h4>
+        <h4 className='font-poppins font-bold'>{details.name}</h4>
       </div>
     </div>
   );
