@@ -3,7 +3,7 @@ import DisplayItem from './displayItem';
 import Carousel from 'nuka-carousel';
 
 interface ProductType {
-  products: { name: string; img_src: string }[];
+  products?: { name: string; img_src: string }[];
 }
 
 const Display: FC<ProductType> = ({ products }) => {
@@ -32,7 +32,7 @@ const Display: FC<ProductType> = ({ products }) => {
           pagingDotsStyle: { fill: 'none' },
         }}
       >
-        {products.map((product) => {
+        {products?.map((product) => {
           return <DisplayItem key={product.name} details={product} />;
         })}
       </Carousel>

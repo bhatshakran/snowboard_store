@@ -6,6 +6,7 @@ import HomeNav from '../components/homeNav';
 import MountainCard from '../components/mountainCard';
 import { ContentType } from '../types';
 import { client } from '../utils/client';
+import Features from '../components/features';
 
 const Home: NextPage<ContentType> = ({ content }) => {
   return (
@@ -21,6 +22,7 @@ const Home: NextPage<ContentType> = ({ content }) => {
       </div>
       <Display />
       <MountainCard />
+      <Features />
 
       {/*  <main>
         <h2>New app here ✈️</h2>
