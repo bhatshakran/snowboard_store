@@ -1,10 +1,12 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Display from '../components/display';
 import Hero from '../components/hero';
 import HomeNav from '../components/homeNav';
+import { ContentType } from '../types';
 import { client } from '../utils/client';
 
-const Home: NextPage = ({ content }: any) => {
+const Home: NextPage<ContentType> = ({ content }) => {
   return (
     <div>
       <Head>
@@ -14,8 +16,9 @@ const Home: NextPage = ({ content }: any) => {
       </Head>
       <div className='h-screen'>
         <HomeNav />
-        <Hero content={content.hero} />
+        <Hero hero={content.hero} />
       </div>
+      <Display />
 
       {/*  <main>
         <h2>New app here ✈️</h2>
