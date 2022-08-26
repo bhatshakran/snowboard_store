@@ -11,36 +11,12 @@ import Footer from '../components/footer';
 import { gsap } from 'gsap';
 
 const Home: NextPage<ContentType> = ({ content }) => {
-  const navRef = React.createRef<HTMLDivElement>();
-  const txtRef = React.createRef<HTMLDivElement>();
-  const imgRef = React.createRef<HTMLDivElement>();
-  const ref = React.useRef({ txtRef, imgRef });
-
   const [tl, setTl] = React.useState(() =>
     gsap.timeline({ defaults: { duration: 2, ease: 'power1.out' } })
   );
 
   console.log('first render page');
 
-  React.useLayoutEffect(() => {
-    if (txtRef.current && imgRef.current) {
-      const tl = gsap.timeline({
-        defaults: { duration: 2, ease: 'power1.out' },
-      });
-      // tl.fromTo(navRef.current, { x: '-100%' }, { x: 0 });
-      tl.fromTo(
-        imgRef.current,
-        { x: '-100%', opacity: 0 },
-        { x: 0, opacity: 1 }
-      );
-      tl.fromTo(
-        txtRef.current,
-        { x: '-100%', opacity: 0 },
-        { x: 0, opacity: 1 },
-        '<'
-      );
-    }
-  }, [txtRef, imgRef]);
   console.log(' render complete page');
 
   return (
@@ -52,7 +28,7 @@ const Home: NextPage<ContentType> = ({ content }) => {
       </Head>
       <div className='h-screen'>
         <HomeNav timeline={tl} />
-        <Hero ref={ref} hero={content.hero} />
+        <Hero timeline={tl} hero={content.hero} />
       </div>
       <Display />
       <MountainCard />

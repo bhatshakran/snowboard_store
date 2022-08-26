@@ -1,15 +1,31 @@
 import Image from 'next/image';
-import React, { FC, ForwardedRef, Ref, RefObject } from 'react';
+import React, { FC } from 'react';
 
 interface Hero {
   hero: { title: string; body: string };
+  timeline: any;
 }
-interface IncomingRef {
-  txtRef: React.ForwardedRef<HTMLDivElement>;
-  imgRef: React.ForwardedRef<HTMLDivElement>;
-}
-const Hero = React.forwardRef(({ hero }: Hero, ref: React.Ref<IncomingRef>) => {
-  const { txtRef, imgRef } = ref?.current;
+
+const Hero: FC<Hero> = ({ hero, timeline }: Hero) => {
+  const txtRef = React.useRef<HTMLDivElement>(null);
+  const imgRef = React.useRef<HTMLDivElement>(null);
+
+  React.useLayoutEffect(() => {
+    if (timeline) {
+      timeline.fromTo(
+        imgRef.current,
+        { x: '-100%', opacity: 0 },
+        { x: 0, opacity: 1 }
+      );
+      timeline.fromTo(
+        txtRef.current,
+        { x: '-100%', opacity: 0 },
+        { x: 0, opacity: 1 },
+        '<'
+      );
+    }
+  }, [timeline]);
+
   return (
     <div className='hero_wrapper flex flex-col lg:flex-row items-center justify-center px-8 h-auto lg:h-2/3 text-center my-20 gap-y-4'>
       <div className='txt_section w-full lg:w-1/2 '>
@@ -33,8 +49,6 @@ const Hero = React.forwardRef(({ hero }: Hero, ref: React.Ref<IncomingRef>) => {
       </div>
     </div>
   );
-});
-
-Hero.displayName = 'Hero';
+};
 
 export default Hero;
