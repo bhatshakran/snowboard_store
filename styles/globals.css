@@ -38,7 +38,7 @@
   }
   @media only screen and (max-width: 1024px) {
     .mountain_card {
-      height: 450px;
+      height: 480px;
     }
     .overlay_txt {
       position: absolute;
@@ -61,5 +61,9 @@
 
   .footer_ul {
     @apply mt-6 text-sm font-thin flex flex-col gap-y-4;
+  }
+
+  .footer_ul > li {
+    @apply hover:opacity-75;
   }
 }
