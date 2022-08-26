@@ -5,6 +5,8 @@ export interface DocLink {
 
 export interface DocLinks {
   links?: DocLink[];
+  // ref: React.Ref<HTMLDivElement>;
+  timeline: any;
 }
 
 export interface Hero {

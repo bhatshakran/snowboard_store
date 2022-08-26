@@ -4,21 +4,32 @@ import React from 'react';
 import Logo from './logo';
 import { DocLink, DocLinks } from '../types';
 
-const HomeNav: NextPage<DocLinks> = ({ links }) => {
+const HomeNav: NextPage<DocLinks> = ({ links, timeline }) => {
+  const navRef = React.useRef<HTMLDivElement>(null);
+
+  React.useLayoutEffect(() => {
+    if (timeline) {
+      timeline.fromTo(
+        navRef.current,
+        { y: '-50', visibility: 'visible' },
+        { y: 0 }
+      );
+    }
+  }, [timeline]);
+
   return (
-    <nav>
+    <div ref={navRef} className='nav'>
       <div className='bg-green-400 h-12 w-full flex justify-between'>
         <div className='flex items-center justify-evenly  w-3/5 max-w-lg h-full '>
           <Logo />
-          {links && links.length > 0
-            ? links.map((link: DocLink) => (
-                <div className='px-2' key={link.name}>
-                  <Link href={link.link}>
-                    <a className='text-white'>{link.name}</a>
-                  </Link>
-                </div>
-              ))
-            : null}
+          {links &&
+            links.map((link: DocLink) => (
+              <div className='px-2' key={link.name}>
+                <Link href={link.link}>
+                  <a className='text-white'>{link.name}</a>
+                </Link>
+              </div>
+            ))}
         </div>
 
         <div className='flex items-center justify-end w-2/5 h-full '>
@@ -35,9 +46,11 @@ const HomeNav: NextPage<DocLinks> = ({ links }) => {
           </div>
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
+
+// HomeNav.displayName = ' HomeNav ';
 HomeNav.defaultProps = {
   links: [
     { name: 'shop', link: '/shop' },

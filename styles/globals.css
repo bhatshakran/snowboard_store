@@ -15,6 +15,9 @@
   }
 }
 @layer components {
+  .nav {
+    visibility: hidden;
+  }
   .mountain_card {
     height: 800px;
     background: url('../public/snow_mountains.jpg');
