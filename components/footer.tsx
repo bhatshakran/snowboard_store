@@ -1,9 +1,29 @@
+import gsap from 'gsap';
 import Link from 'next/link';
 import React from 'react';
 
 const Footer = () => {
+  const footerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    gsap.set(footerRef.current, { scale: 0.9, opacity: 0 });
+    gsap.to(footerRef.current, {
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+      ease: 'power1.out',
+      scrollTrigger: {
+        trigger: footerRef.current,
+        // start: 'top = 0px',
+        toggleActions: 'play none none none',
+      },
+    });
+  }, []);
   return (
-    <div className='bg-black min-h-60 mt-60 text-white flex flex-row flex-wrap w-full justify-evenly py-16 px-8 gap-y-4 font-poppins'>
+    <div
+      ref={footerRef}
+      className='bg-black min-h-60 mt-60 text-white flex flex-row flex-wrap w-full justify-evenly py-16 px-8 gap-y-4 font-poppins'
+    >
       <div className='w-1/2 md:w-1/6'>
         <h2 className='text-xl text-green-400'>Products</h2>
         <ul className='footer_ul'>

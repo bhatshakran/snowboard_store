@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import React, { Ref } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import Display from '../components/display';
 import Hero from '../components/hero';
@@ -8,13 +8,8 @@ import MountainCard from '../components/mountainCard';
 import { ContentType } from '../types';
 import Features from '../components/features';
 import Footer from '../components/footer';
-import { gsap } from 'gsap';
 
 const Home: NextPage<ContentType> = ({ content }) => {
-  const [tl, setTl] = React.useState(() =>
-    gsap.timeline({ defaults: { duration: 1.3, ease: 'bounce' } })
-  );
-
   return (
     <div>
       <Head>
@@ -23,10 +18,10 @@ const Home: NextPage<ContentType> = ({ content }) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div className='h-screen'>
-        <HomeNav timeline={tl} />
-        <Hero timeline={tl} hero={content.hero} />
+        <HomeNav />
+        <Hero hero={content.hero} />
       </div>
-      <Display timeline={tl} />
+      <Display />
       <MountainCard />
       <Features />
       <Footer />

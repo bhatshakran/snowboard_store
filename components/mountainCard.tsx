@@ -1,9 +1,30 @@
+import gsap from 'gsap';
 import React from 'react';
 
 const MountainCard = () => {
+  const overlayRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    gsap.set(overlayRef.current, { y: '300', x: '300', opacity: 0 });
+    gsap.to(overlayRef.current, {
+      y: 0,
+      x: 0,
+      opacity: 1,
+      duration: 3,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: overlayRef.current,
+        start: 'top += 100px',
+        toggleActions: 'restart none none none',
+      },
+    });
+  }, []);
   return (
-    <div className='mountain_card bg-red-100 my-44 relative overflow-hidden'>
-      <div className='overlay_txt p-6 overflow-hidden lg:rounded-lg sm:pt-12'>
+    <div className='mountain_card bg-red-100 mt-80 mb-44 relative overflow-hidden'>
+      <div
+        ref={overlayRef}
+        className='overlay_txt p-6 overflow-hidden lg:rounded-lg sm:pt-12'
+      >
         <h2 className='text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-poppins font-bold'>
           THE MOUNTAINS SNOWBOARDING
         </h2>

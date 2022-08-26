@@ -1,16 +1,17 @@
+import gsap from 'gsap';
 import Image from 'next/image';
 import React, { FC } from 'react';
 
 interface Hero {
   hero: { title: string; body: string };
-  timeline: any;
 }
 
-const Hero: FC<Hero> = ({ hero, timeline }: Hero) => {
+const Hero: FC<Hero> = ({ hero }: Hero) => {
   const txtRef = React.useRef<HTMLDivElement>(null);
   const imgRef = React.useRef<HTMLDivElement>(null);
 
   React.useLayoutEffect(() => {
+    const timeline = gsap.timeline({ defaults: { duration: 2 } });
     if (timeline) {
       timeline.fromTo(
         imgRef.current,
@@ -24,7 +25,7 @@ const Hero: FC<Hero> = ({ hero, timeline }: Hero) => {
         '<+0.1'
       );
     }
-  }, [timeline]);
+  }, []);
 
   return (
     <div className='hero_wrapper flex flex-col lg:flex-row items-center justify-center px-8 h-auto lg:h-2/3 text-center my-20 gap-y-4'>

@@ -5,21 +5,21 @@ import Logo from './logo';
 import { DocLink, DocLinks } from '../types';
 import gsap from 'gsap';
 
-const HomeNav: NextPage<DocLinks> = ({ links, timeline }) => {
+const HomeNav: NextPage<DocLinks> = ({ links }) => {
   const navRef = React.useRef<HTMLDivElement>(null);
 
   React.useLayoutEffect(() => {
     const timeline = gsap.timeline({
-      defaults: { duration: 2.2, ease: 'power2.out' },
+      defaults: { duration: 2, ease: 'smooth' },
     });
     if (timeline) {
       timeline.fromTo(
         navRef.current,
-        { y: '-100', visibility: 'visible' },
-        { y: 0 }
+        { y: '-50', opacity: 0, visibility: 'hidden' },
+        { y: 0, opacity: 1, visibility: 'visible' }
       );
     }
-  }, [timeline]);
+  }, []);
 
   return (
     <div ref={navRef} className='nav'>

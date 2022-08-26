@@ -16,7 +16,7 @@
 }
 @layer components {
   .nav {
-    visibility: hidden;
+    /* visibility: hidden; */
   }
   .mountain_card {
     height: 800px;

@@ -6,10 +6,9 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 interface ProductType {
   products?: { name: string; img_src: string }[];
-  timeline: any;
 }
 
-const Display: FC<ProductType> = ({ products, timeline }) => {
+const Display: FC<ProductType> = ({ products }) => {
   const displayRef = React.useRef<HTMLDivElement>(null);
 
   if (typeof window !== undefined) {
@@ -24,7 +23,6 @@ const Display: FC<ProductType> = ({ products, timeline }) => {
     });
     gsap.to(displayRef.current, {
       opacity: 1,
-      // x: 0,
       scale: 1,
       duration: 2,
       ease: 'power2.out',

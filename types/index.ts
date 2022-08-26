@@ -5,7 +5,6 @@ export interface DocLink {
 
 export interface DocLinks {
   links?: DocLink[];
-  timeline: any;
 }
 
 export interface Hero {
