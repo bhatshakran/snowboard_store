@@ -3,15 +3,19 @@ import Link from 'next/link';
 import React from 'react';
 import Logo from './logo';
 import { DocLink, DocLinks } from '../types';
+import gsap from 'gsap';
 
 const HomeNav: NextPage<DocLinks> = ({ links, timeline }) => {
   const navRef = React.useRef<HTMLDivElement>(null);
 
   React.useLayoutEffect(() => {
+    const timeline = gsap.timeline({
+      defaults: { duration: 2.2, ease: 'power2.out' },
+    });
     if (timeline) {
       timeline.fromTo(
         navRef.current,
-        { y: '-50', visibility: 'visible' },
+        { y: '-100', visibility: 'visible' },
         { y: 0 }
       );
     }

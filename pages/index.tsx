@@ -12,12 +12,8 @@ import { gsap } from 'gsap';
 
 const Home: NextPage<ContentType> = ({ content }) => {
   const [tl, setTl] = React.useState(() =>
-    gsap.timeline({ defaults: { duration: 2, ease: 'power1.out' } })
+    gsap.timeline({ defaults: { duration: 1.3, ease: 'bounce' } })
   );
-
-  console.log('first render page');
-
-  console.log(' render complete page');
 
   return (
     <div>
@@ -30,7 +26,7 @@ const Home: NextPage<ContentType> = ({ content }) => {
         <HomeNav timeline={tl} />
         <Hero timeline={tl} hero={content.hero} />
       </div>
-      <Display />
+      <Display timeline={tl} />
       <MountainCard />
       <Features />
       <Footer />

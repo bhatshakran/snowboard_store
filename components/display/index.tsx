@@ -1,14 +1,44 @@
 import React, { FC } from 'react';
 import DisplayItem from './displayItem';
 import Carousel from 'nuka-carousel';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 interface ProductType {
   products?: { name: string; img_src: string }[];
+  timeline: any;
 }
 
-const Display: FC<ProductType> = ({ products }) => {
+const Display: FC<ProductType> = ({ products, timeline }) => {
+  const displayRef = React.useRef<HTMLDivElement>(null);
+
+  if (typeof window !== undefined) {
+    gsap.registerPlugin(ScrollTrigger);
+  }
+
+  React.useEffect(() => {
+    gsap.set(displayRef.current, {
+      // x: '100%',
+      opacity: 0,
+      scale: 0.2,
+    });
+    gsap.to(displayRef.current, {
+      opacity: 1,
+      // x: 0,
+      scale: 1,
+      duration: 2,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: displayRef.current,
+        start: 'top += 100px',
+        toggleActions: 'restart none none none',
+      },
+    });
+    // }
+  }, []);
+
   return (
-    <>
+    <div ref={displayRef}>
       <div className='mt-16 text-center  '>
         <h1 className='text-5xl font-bold font-poppins'>Snowboards</h1>
 
@@ -18,7 +48,7 @@ const Display: FC<ProductType> = ({ products }) => {
       <Carousel
         wrapAround={true}
         slidesToShow={2}
-        autoplay={true}
+        autoplay={false}
         className='mt-20'
         defaultControlsConfig={{
           /* nextButtonText: '>',
@@ -36,7 +66,7 @@ const Display: FC<ProductType> = ({ products }) => {
           return <DisplayItem key={product.name} details={product} />;
         })}
       </Carousel>
-    </>
+    </div>
   );
 };
 

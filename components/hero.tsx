@@ -15,13 +15,13 @@ const Hero: FC<Hero> = ({ hero, timeline }: Hero) => {
       timeline.fromTo(
         imgRef.current,
         { x: '-100%', opacity: 0 },
-        { x: 0, opacity: 1 }
+        { x: 0, opacity: 1, delay: '0.3', ease: 'smooth' }
       );
       timeline.fromTo(
         txtRef.current,
         { x: '-100%', opacity: 0 },
-        { x: 0, opacity: 1 },
-        '<'
+        { x: 0, opacity: 1, ease: 'smooth' },
+        '<+0.1'
       );
     }
   }, [timeline]);
