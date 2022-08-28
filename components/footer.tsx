@@ -82,7 +82,7 @@ const Footer = () => {
               name='email'
               id=''
               placeholder='someone@example.com'
-              className='bg-transparent focus:outline-none p-3 border border-green-400 w-60'
+              className='bg-transparent focus:outline-none p-3 border border-green-400 w-auto md:w-60'
             />
           </li>
           <li>
