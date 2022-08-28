@@ -31,6 +31,7 @@ interface Snowboard {
 interface Data {
   data: Snowboard[];
 }
+
 const index: NextPage<Data> = ({ data }: Data) => {
   return (
     <div>

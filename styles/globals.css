@@ -20,6 +20,7 @@
   .txthero {
     visibility: hidden;
   }
+
   .mountain_card {
     height: 800px;
     background: url('../public/snow_mountains.jpg');
@@ -56,6 +57,11 @@
   @media only screen and (max-width: 640px) {
     .mountain_card {
       height: 400px;
+    }
+    /* nav bar  */
+    .nav > .isMobile {
+      background: 'blue' !important;
+      flex-direction: flex-column !important;
     }
   }
   @media only screen and (max-width: 430px) {

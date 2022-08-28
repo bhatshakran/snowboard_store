@@ -4,9 +4,11 @@ import React from 'react';
 import Logo from './logo';
 import { DocLink, DocLinks } from '../types';
 import gsap from 'gsap';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 const HomeNav: NextPage<DocLinks> = ({ links }) => {
   const navRef = React.useRef<HTMLDivElement>(null);
+  const [navLinks, setShowNavLinks] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     const timeline = gsap.timeline({
@@ -21,15 +23,39 @@ const HomeNav: NextPage<DocLinks> = ({ links }) => {
     }
   }, []);
 
+  const showNav = (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(e);
+    setShowNavLinks(!navLinks);
+  };
+
   return (
     <div ref={navRef} className='nav'>
-      <div className='bg-red-400 h-12 w-full flex justify-between'>
-        <div className='flex items-center justify-evenly  w-3/5 max-w-lg h-full '>
+      <div className=' bg-green-400 h-auto w-full flex  sm:flex-row flex-wrap  items-center'>
+        <div className='flex items-center justify-start  w-1/2 sm:w-auto h-full '>
           <Link href='/'>
             <a>
               <Logo />
             </a>
           </Link>
+        </div>
+        {/* toggle button here */}
+        <button
+          className=' sm:hidden w-1/2 text-right flex justify-end pr-4'
+          onClick={(e) => showNav(e)}
+        >
+          <GiHamburgerMenu className='text-white' />
+        </button>
+
+        {/* rest of the links start here */}
+        <div
+          className={`
+          ${
+            navLinks
+              ? 'flex flex-col py-12 capitalize gap-y-4 w-full justify-center items-center text-xl bg-green-600'
+              : 'hidden sm:flex  items-center justify-end w-2/5 h-full text-white'
+          }   
+          `}
+        >
           {links &&
             links.map((link: DocLink) => (
               <div className='px-2' key={link.name}>
@@ -40,14 +66,22 @@ const HomeNav: NextPage<DocLinks> = ({ links }) => {
             ))}
         </div>
 
-        <div className='flex items-center justify-end w-2/5 h-full text-white'>
-          <div className=' mx-2'>
+        <div
+          className={`
+          ${
+            navLinks
+              ? 'flex flex-col  gap-y-4 capitalize w-full justify-center items-center text-xl bg-green-600'
+              : 'hidden sm:flex  items-center justify-end w-2/5 h-full'
+          }   
+          `}
+        >
+          <div className=' mx-2 text-white'>
             <Link href='/'>
               <a>search</a>
             </Link>
           </div>
 
-          <div className='mr-4 ml-2'>
+          <div className='mr-4 ml-2 text-white'>
             <Link href='/account'>
               <a>account</a>
             </Link>
