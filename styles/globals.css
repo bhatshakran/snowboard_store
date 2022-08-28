@@ -69,4 +69,22 @@
   .footer_ul > li {
     @apply hover:opacity-75;
   }
+  .hero_shop {
+    background: url('../public/shop.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: contain;
+  }
+
+  .hero_shop::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+  }
 }

@@ -22,7 +22,7 @@ const HomeNav: NextPage<DocLinks> = ({ links }) => {
   }, []);
 
   return (
-    <div ref={navRef} className='nav'>
+    <div ref={navRef} className='nav '>
       <div className='bg-green-400 h-12 w-full flex justify-between'>
         <div className='flex items-center justify-evenly  w-3/5 max-w-lg h-full '>
           <Link href='/'>
