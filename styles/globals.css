@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-  a {
-    @apply text-white;
-  }
+  /* a { */
+  /* @apply text-white; */
+  /* } */
   @font-face {
     font-family: 'Poppins';
     src: url('./fonts/Poppins/Poppins-Regular.ttf') format('truetype');
