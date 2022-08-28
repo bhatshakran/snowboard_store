@@ -10,9 +10,11 @@ interface Hero {
 const Hero: FC<Hero> = ({ hero }: Hero) => {
   const txtRef = React.useRef<HTMLDivElement>(null);
   const imgRef = React.useRef<HTMLDivElement>(null);
+  const heroRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     const timeline = gsap.timeline({ defaults: { duration: 2 } });
+    timeline.set(heroRef.current, { visibility: 'visible' });
     if (timeline) {
       timeline.fromTo(
         imgRef.current,
@@ -29,7 +31,10 @@ const Hero: FC<Hero> = ({ hero }: Hero) => {
   }, []);
 
   return (
-    <div className='hero_wrapper flex flex-col lg:flex-row items-center justify-center px-8 h-auto lg:h-2/3 text-center my-20 gap-y-4'>
+    <div
+      className='hero_wrapper flex flex-col lg:flex-row items-center justify-center px-8 h-auto lg:h-2/3 text-center my-20 gap-y-4'
+      ref={heroRef}
+    >
       <div className='txt_section w-full lg:w-1/2 '>
         <div
           ref={txtRef}
