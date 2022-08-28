@@ -3,7 +3,6 @@ import React from 'react';
 import Head from 'next/head';
 import Display from '../components/display';
 import Hero from '../components/hero';
-import HomeNav from '../components/homeNav';
 import MountainCard from '../components/mountainCard';
 import { ContentType } from '../types';
 import Features from '../components/features';
@@ -18,7 +17,6 @@ const Home: NextPage<ContentType> = ({ content }) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div className='h-screen'>
-        <HomeNav />
         <Hero hero={content.hero} />
       </div>
       <Display />

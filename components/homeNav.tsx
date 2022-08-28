@@ -25,7 +25,11 @@ const HomeNav: NextPage<DocLinks> = ({ links }) => {
     <div ref={navRef} className='nav'>
       <div className='bg-green-400 h-12 w-full flex justify-between'>
         <div className='flex items-center justify-evenly  w-3/5 max-w-lg h-full '>
-          <Logo />
+          <Link href='/'>
+            <a>
+              <Logo />
+            </a>
+          </Link>
           {links &&
             links.map((link: DocLink) => (
               <div className='px-2' key={link.name}>
