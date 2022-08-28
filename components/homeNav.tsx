@@ -36,7 +36,7 @@ const HomeNav: NextPage<DocLinks> = ({ links }) => {
             ))}
         </div>
 
-        <div className='flex items-center justify-end w-2/5 h-full '>
+        <div className='flex items-center justify-end w-2/5 h-full text-white'>
           <div className=' mx-2'>
             <Link href='/'>
               <a>search</a>
