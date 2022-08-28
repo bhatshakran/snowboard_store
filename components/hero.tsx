@@ -10,20 +10,18 @@ interface Hero {
 const Hero: FC<Hero> = ({ hero }: Hero) => {
   const txtRef = React.useRef<HTMLDivElement>(null);
   const imgRef = React.useRef<HTMLDivElement>(null);
-  const heroRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     const timeline = gsap.timeline({ defaults: { duration: 2 } });
-    timeline.set(heroRef.current, { autoAlpha: 1 });
     if (timeline) {
       timeline.fromTo(
         imgRef.current,
-        { x: '-100%', opacity: 0 },
+        { x: '-100%', opacity: 0, autoAlpha: 1 },
         { x: 0, opacity: 1, delay: '0.3', ease: 'smooth' }
       );
       timeline.fromTo(
         txtRef.current,
-        { x: '-100%', opacity: 0 },
+        { x: '-100%', opacity: 0, autoAlpha: 1 },
         { x: 0, opacity: 1, ease: 'smooth' },
         '<+0.1'
       );
@@ -31,14 +29,11 @@ const Hero: FC<Hero> = ({ hero }: Hero) => {
   }, []);
 
   return (
-    <div
-      className='hero_wrapper flex flex-col lg:flex-row items-center justify-center px-8 h-auto lg:h-2/3 text-center my-20 gap-y-4'
-      ref={heroRef}
-    >
+    <div className='hero_wrapper flex flex-col lg:flex-row items-center justify-center px-8 h-auto lg:h-2/3 text-center my-20 gap-y-4'>
       <div className='txt_section w-full lg:w-1/2 '>
         <div
           ref={txtRef}
-          className='text-4xl sm:text-6xl font-poppins font-extrabold flex flex-col justify-center items-center lg:justify-start lg:text-left lg:items-baseline'
+          className='txthero text-4xl sm:text-6xl font-poppins font-extrabold flex flex-col justify-center items-center lg:justify-start lg:text-left lg:items-baseline'
         >
           <p>{hero.title}</p>
 

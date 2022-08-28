@@ -16,7 +16,8 @@
 }
 @layer components {
   .nav,
-  .hero_wrapper {
+  .img_section,
+  .txthero {
     visibility: hidden;
   }
   .mountain_card {
