@@ -16,7 +16,7 @@
 }
 @layer components {
   .nav,
-  .hero {
+  .hero_wrapper {
     visibility: hidden;
   }
   .mountain_card {
