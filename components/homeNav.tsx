@@ -8,22 +8,22 @@ import gsap from 'gsap';
 const HomeNav: NextPage<DocLinks> = ({ links }) => {
   const navRef = React.useRef<HTMLDivElement>(null);
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const timeline = gsap.timeline({
       defaults: { duration: 2, ease: 'smooth' },
     });
     if (timeline) {
       timeline.fromTo(
         navRef.current,
-        { y: '-50', opacity: 0, visibility: 'hidden' },
-        { y: 0, opacity: 1, visibility: 'visible' }
+        { y: '-50', opacity: 0, autoAlpha: 1 },
+        { y: 0, opacity: 1 }
       );
     }
   }, []);
 
   return (
-    <div ref={navRef} className='nav '>
-      <div className='bg-green-400 h-12 w-full flex justify-between'>
+    <div ref={navRef} className='nav'>
+      <div className='bg-red-400 h-12 w-full flex justify-between'>
         <div className='flex items-center justify-evenly  w-3/5 max-w-lg h-full '>
           <Link href='/'>
             <a>

@@ -11,7 +11,7 @@ const Hero: FC<Hero> = ({ hero }: Hero) => {
   const txtRef = React.useRef<HTMLDivElement>(null);
   const imgRef = React.useRef<HTMLDivElement>(null);
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const timeline = gsap.timeline({ defaults: { duration: 2 } });
     if (timeline) {
       timeline.fromTo(
@@ -38,8 +38,8 @@ const Hero: FC<Hero> = ({ hero }: Hero) => {
           <p>{hero.title}</p>
 
           <div className='border w-32 text-black text-center border-black text-lg  py-2 sm:text-2xl font-poppins hover:bg-black hover:text-white mt-8 cursor-pointer'>
-            <Link href='/shop' className=''>
-              <a className=''>Shop</a>
+            <Link href='/shop'>
+              <a>Shop</a>
             </Link>
           </div>
         </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import { client } from '../../utils/client';
-import Image from 'next/image';
 
 interface Snowboard {
   brand: string;
@@ -33,12 +32,11 @@ interface Data {
   data: Snowboard[];
 }
 const index: NextPage<Data> = ({ data }: Data) => {
-  console.log(data);
   return (
     <div>
       <div className='hero_shop h-96 w-full relative z-0'>
         <h2 className='absolute z-10 top-1/2 left-1/2 -translate-x-1/2 text-center text-4xl md:text-6xl text-gray-100 font-poppins font-extrabold '>
-          Products
+          Shop
         </h2>
       </div>
     </div>
