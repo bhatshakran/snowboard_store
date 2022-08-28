@@ -14,7 +14,7 @@ const Hero: FC<Hero> = ({ hero }: Hero) => {
 
   React.useEffect(() => {
     const timeline = gsap.timeline({ defaults: { duration: 2 } });
-    timeline.set(heroRef.current, { visibility: 'visible' });
+    timeline.set(heroRef.current, { autoAlpha: 1 });
     if (timeline) {
       timeline.fromTo(
         imgRef.current,
