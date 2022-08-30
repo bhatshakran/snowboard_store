@@ -11,4 +11,8 @@ module.exports = {
     },
   },
   plugins: [require('tailwindcss-debug-screens')],
+  compilerOptions: {
+    allowJs: true,
+    allowsyntheticdefaultimports: true,
+  },
 };

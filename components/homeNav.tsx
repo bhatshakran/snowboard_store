@@ -5,15 +5,52 @@ import Logo from './logo';
 import { DocLink, DocLinks } from '../types';
 import gsap from 'gsap';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import resolveConfig from 'tailwindcss/resolveConfig';
+import tailwindConfig from '../tailwind.config';
+
+const fullConfig = resolveConfig(tailwindConfig);
+
+export const getBreakpointValue = (value: string): number =>
+  +fullConfig.theme.screens[value].slice(
+    0,
+    fullConfig.theme.screens[value].indexOf('px')
+  );
+
+export const getCurrentBreakpoint = (): string => {
+  let currentBreakpoint: string;
+  let biggestBreakpointValue = 0;
+  if (typeof window !== 'undefined') {
+    for (const breakpoint of Object.keys(fullConfig.theme.screens)) {
+      const breakpointValue = getBreakpointValue(breakpoint);
+      if (
+        breakpointValue > biggestBreakpointValue &&
+        window.innerWidth >= breakpointValue
+      ) {
+        biggestBreakpointValue = breakpointValue;
+        currentBreakpoint = breakpoint;
+      }
+    }
+    return currentBreakpoint;
+  }
+};
 
 const HomeNav: NextPage<DocLinks> = ({ links }) => {
   const navRef = React.useRef<HTMLDivElement>(null);
   const [navLinks, setShowNavLinks] = React.useState<boolean>(false);
 
+  //  if screen size is greater than sm then set navlinks to false
+  const setNavFlex = () => {
+    const screenSize = getCurrentBreakpoint();
+    if (screenSize !== 'undefined') {
+      setShowNavLinks(false);
+    } else setShowNavLinks(true);
+  };
+
   React.useEffect(() => {
     const timeline = gsap.timeline({
       defaults: { duration: 2, ease: 'smooth' },
     });
+
     if (timeline) {
       timeline.fromTo(
         navRef.current,
@@ -21,10 +58,13 @@ const HomeNav: NextPage<DocLinks> = ({ links }) => {
         { y: 0, opacity: 1 }
       );
     }
+
+    window.addEventListener('resize', setNavFlex);
+
+    return () => window.removeEventListener('resize', setNavFlex);
   }, []);
 
   const showNav = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(e);
     setShowNavLinks(!navLinks);
   };
 
@@ -71,7 +111,7 @@ const HomeNav: NextPage<DocLinks> = ({ links }) => {
           ${
             navLinks
               ? 'flex flex-col  gap-y-4 capitalize w-full justify-center items-center text-xl bg-green-600'
-              : 'hidden sm:flex  items-center justify-end w-2/5 h-full'
+              : 'hidden sm:flex flex- items-center justify-end w-2/5 h-full'
           }   
           `}
         >
