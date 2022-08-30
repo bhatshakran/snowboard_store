@@ -6,7 +6,7 @@ import NextNProgress from 'nextjs-progressbar';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <NextNProgress color='white' options={{ showSpinner: false }} />
+      <NextNProgress color='aqua' options={{ showSpinner: false }} />
       <HomeNav />
       <Component {...pageProps} />
     </>

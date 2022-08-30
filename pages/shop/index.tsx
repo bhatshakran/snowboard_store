@@ -2,7 +2,7 @@ import React from 'react';
 import type { NextPage } from 'next';
 import { client } from '../../utils/client';
 import Image from 'next/image';
-import { getCurrentBreakpoint } from '../../utils/hooks/getCurrentBreakpoint';
+import ProductCard from './[product]';
 
 interface Snowboard {
   brand: string;
@@ -27,7 +27,9 @@ interface Snowboard {
     tail_width?: string;
     waist_width?: string;
   }[];
+  img: { asset: { _ref: string }; _type: string };
   name: string;
+  _id: string;
 }
 
 interface Data {
@@ -44,12 +46,21 @@ const index: NextPage<Data> = ({ data }: Data) => {
           layout='responsive'
           width={'100%'}
           // height={getCurrentBreakpoint() === 'undefined' ? '400' : '43%'}
-          height={'43%'}
-          priority={true}
+          height={'50%'}
         />
         <h2 className='absolute z-10 top-1/2 left-1/2 -translate-x-1/2 text-center text-4xl md:text-6xl text-gray-100 font-poppins font-extrabold '>
           Shop
         </h2>
+      </div>
+
+      <div className='flex flex-col items-center mt-20 gap-y-8'>
+        <h2 className='text-4xl font-extrabold font-poppins'>Features</h2>
+        <p className='text-4xl font-extrabold font-poppins'>X</p>
+        <div className='products_wrapper flex flex-wrap gap-x-4 gap-y-8 px-2 justify-center'>
+          {data.map((data) => {
+            return <ProductCard product={data} key={data._id} />;
+          })}
+        </div>
       </div>
     </div>
   );
