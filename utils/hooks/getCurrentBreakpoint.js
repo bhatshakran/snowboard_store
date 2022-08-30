@@ -10,6 +10,7 @@ export const getBreakpointValue = (value) =>
   );
 
 export const getCurrentBreakpoint = () => {
+  let currentBreakpoint;
   let biggestBreakpointValue = 0;
   if (typeof window !== 'undefined') {
     for (const breakpoint of Object.keys(fullConfig.theme.screens)) {

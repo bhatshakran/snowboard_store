@@ -6,10 +6,12 @@ import { DocLink, DocLinks } from '../types';
 import gsap from 'gsap';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { getCurrentBreakpoint } from '../utils/hooks/getCurrentBreakpoint';
+import { useRouter } from 'next/router';
 
 const HomeNav: NextPage<DocLinks> = ({ links }) => {
   const navRef = React.useRef<HTMLDivElement>(null);
   const [navLinks, setShowNavLinks] = React.useState<boolean>(false);
+  const { events } = useRouter();
 
   //  if screen size is greater than sm then set navlinks to false
   const setNavFlex = () => {
@@ -36,6 +38,17 @@ const HomeNav: NextPage<DocLinks> = ({ links }) => {
 
     return () => window.removeEventListener('resize', setNavFlex);
   }, []);
+
+  const closeNavbar = () => {
+    console.log('done');
+    setShowNavLinks(false);
+  };
+
+  React.useEffect(() => {
+    events.on('routeChangeStart', closeNavbar);
+
+    return () => events.off('routeChangeStart', closeNavbar);
+  }, [events]);
 
   const showNav = (e: React.MouseEvent<HTMLButtonElement>) => {
     setShowNavLinks(!navLinks);
