@@ -2,7 +2,7 @@ import React from 'react';
 import type { NextPage } from 'next';
 import { client } from '../../utils/client';
 import Image from 'next/image';
-import ProductCard from './[product]';
+import ProductCard from './product';
 
 interface Snowboard {
   brand: string;
