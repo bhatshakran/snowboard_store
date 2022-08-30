@@ -41,21 +41,28 @@ const ProductCard: NextPage<Snowboard> = ({ product }: Snowboard) => {
     );
   }
   return (
-    <div className='border border-black '>
+    <div className='border border-gray-100 shadow-md p-2 w-52 rounded-md'>
       <Image
         src={
           product.img
             ? urlFor(product.img?.asset?._ref)
-                .width(500)
-                .height(300)
-                .fit('scale')
+                .width(390)
+                .height(900)
+                .fit('crop')
+                .crop('top')
                 .url()
             : '/snowboarder.png'
         }
         width='200'
-        height='250'
+        height='280'
         alt={product.brand}
       />
+
+      <div>
+        <div className='font-poppins font-bold mt-6 text-center '>
+          {product.name}
+        </div>
+      </div>
     </div>
   );
 };
