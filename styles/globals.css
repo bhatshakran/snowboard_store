@@ -77,13 +77,13 @@
   .footer_ul > li {
     @apply hover:opacity-75;
   }
-  .hero_shop {
-    background: url('../public/shop.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    object-fit: contain;
-  }
+  /* .hero_shop { */
+  /* background: url('../public/shop.jpeg'); */
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* object-fit: contain; */
+  /* } */
 
   .hero_shop::before {
     content: '';
