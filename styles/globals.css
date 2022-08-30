@@ -6,14 +6,20 @@
   /* a { */
   /* @apply text-white; */
   /* } */
-
-  a:active {
-    background: none;
-  }
-
-  a:focus {
+  input,
+  textarea,
+  button,
+  select,
+  a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     outline: none;
   }
+  a:focus,
+  a:visited,
+  a:active {
+    outline: none;
+  }
+
   @font-face {
     font-family: 'Poppins';
     src: url('./fonts/Poppins/Poppins-Regular.ttf') format('truetype');
