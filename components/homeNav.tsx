@@ -55,7 +55,7 @@ const HomeNav: NextPage<DocLinks> = ({ links }) => {
 
   return (
     <div ref={navRef} className='nav'>
-      <div className=' bg-green-400 h-auto w-full flex  sm:flex-row flex-wrap  items-center'>
+      <div className=' bg-black h-auto w-full flex  sm:flex-row flex-wrap  items-center'>
         <div className='flex items-center justify-start  w-1/2 sm:w-auto h-full '>
           <Link href='/'>
             <a>
@@ -76,7 +76,7 @@ const HomeNav: NextPage<DocLinks> = ({ links }) => {
           className={`
           ${
             navLinks
-              ? 'flex flex-col py-12 capitalize gap-y-4 w-full justify-center items-center text-xl bg-green-600'
+              ? 'flex flex-col py-4 capitalize gap-y-4 w-full justify-center items-start text-xl bg-black tracking-widest '
               : 'hidden sm:flex  items-center justify-end w-2/5 h-full text-white'
           }   
           `}
@@ -95,7 +95,7 @@ const HomeNav: NextPage<DocLinks> = ({ links }) => {
           className={`
           ${
             navLinks
-              ? 'flex flex-col  gap-y-4 capitalize w-full justify-center items-center text-xl bg-green-600'
+              ? 'flex flex-col  gap-y-4 capitalize w-full justify-center items-start text-xl bg-black pb-4 tracking-widest'
               : 'hidden sm:flex flex- items-center justify-end w-2/5 h-full'
           }   
           `}
