@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import urlFor from '../../utils/imgBuilder';
+import urlFor from '../utils/imgBuilder';
 
 interface Snowboard {
   product: {
