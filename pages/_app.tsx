@@ -1,13 +1,12 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import HomeNav from '../components/homeNav';
-// import dynamic from 'next/dynamic';
-
-// const HomeNav = dynamic(() => import('../components/homeNav'), { ssr: false });
+import NextNProgress from 'nextjs-progressbar';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <NextNProgress color='black' options={{ showSpinner: false }} />
       <HomeNav />
       <Component {...pageProps} />
     </>

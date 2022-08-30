@@ -40,7 +40,6 @@ const HomeNav: NextPage<DocLinks> = ({ links }) => {
   }, []);
 
   const closeNavbar = () => {
-    console.log('done');
     setShowNavLinks(false);
   };
 
