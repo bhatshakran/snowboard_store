@@ -35,6 +35,27 @@
     visibility: hidden;
   }
 
+  .product_details > div {
+    @apply flex items-baseline gap-2;
+  }
+
+  .product_details h3 {
+    @apply text-2xl mt-6;
+  }
+
+  .product_details h4,
+  p {
+    @apply text-lg;
+  }
+
+  .product_details h4 {
+    @apply text-green-300 opacity-80;
+  }
+
+  .product_features > div {
+    @apply flex flex-row gap-2;
+  }
+
   .mountain_card {
     height: 800px;
     background: url('../public/snow_mountains.jpg');

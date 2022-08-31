@@ -18,23 +18,86 @@ const Index: NextPage<Product> = ({ snowboard }) => {
     });
   }, [snowboard]);
 
+  console.log(product);
+
   return (
-    <div>
-      <Image
-        src={
-          product && product?.img
-            ? urlFor(product.img?.asset?._ref)
-                .width(390)
-                .height(900)
-                .fit('crop')
-                .crop('top')
-                .url()
-            : '/snowboarder.png'
-        }
-        width='200'
-        height='280'
-        alt={product?.brand}
-      />
+    <div className='flex justify-center mt-20 flex-col'>
+      <h1 className='text-4xl text-center font-poppins font-extrabold'>
+        {product?.name}
+      </h1>
+      <div className='mt-12 text-center'>
+        <Image
+          src={
+            product && product?.img
+              ? urlFor(product.img?.asset?._ref)
+                  .width(390)
+                  .height(930)
+                  .fit('crop')
+                  .crop('top')
+                  .url()
+              : '/snowboarder.png'
+          }
+          width='200'
+          height='280'
+          alt={product?.brand}
+        />
+      </div>
+
+      <div className='product_details bg-black text-gray-300 p-6 mt-12'>
+        <div>
+          <h4>Brand:</h4>
+          <p>{product?.brand}</p>
+        </div>
+
+        <div>
+          <h4>About:</h4>
+          <p>{product?.description}</p>
+        </div>
+
+        {/* Features */}
+        <div className='product_features flex-col '>
+          <h3 className=' text-green-300 opacity-80 font-bold'>Features:</h3>
+
+          <div>
+            <h4>Bend:</h4>
+            <p>{product?.features?.bend && product?.features?.bend}</p>
+          </div>
+
+          <div>
+            <h4>Base:</h4>
+            <p>{product?.features?.base && product?.features?.base}</p>
+          </div>
+          <div>
+            <h4>Construction:</h4>
+            <p>
+              {product?.features?.construction &&
+                product?.features?.construction}
+            </p>
+          </div>
+          <div></div>
+          <div>
+            <h4>Core:</h4>
+
+            <p>{product?.features?.core && product?.features?.core}</p>
+          </div>
+          <div>
+            {product?.features?.reinforcement && (
+              <>
+                <h4>Reinforcement:</h4>
+                <p>{product?.features?.reinforcement}</p>
+              </>
+            )}
+          </div>
+          <div>
+            {product?.features?.sidewall && (
+              <>
+                <h4>Sidewall:</h4>
+                <p> {product?.features?.sidewall}</p>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
