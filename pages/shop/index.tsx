@@ -4,7 +4,7 @@ import { client } from '../../utils/client';
 import Image from 'next/image';
 import ProductCard from '../../components/product';
 
-interface Snowboard {
+export interface Snowboard {
   brand: string;
   description: string;
   features: {
