@@ -1,10 +1,42 @@
+import { NextPage } from 'next';
+import Image from 'next/image';
 import React from 'react';
 import { client } from '../../utils/client';
+import urlFor from '../../utils/imgBuilder';
 import { Snowboard } from '../shop';
 
-const index = ({ data }) => {
-  console.log(data);
-  return <div>products here</div>;
+interface Product {
+  snowboard: Snowboard;
+}
+
+const Index: NextPage<Product> = ({ snowboard }) => {
+  const [product, setProduct] = React.useState<Snowboard>();
+
+  React.useLayoutEffect(() => {
+    Object.values(snowboard).map((el) => {
+      setProduct(el);
+    });
+  }, [snowboard]);
+
+  return (
+    <div>
+      <Image
+        src={
+          product && product?.img
+            ? urlFor(product.img?.asset?._ref)
+                .width(390)
+                .height(900)
+                .fit('crop')
+                .crop('top')
+                .url()
+            : '/snowboarder.png'
+        }
+        width='200'
+        height='280'
+        alt={product?.brand}
+      />
+    </div>
+  );
 };
 
 export async function getStaticPaths() {
@@ -26,10 +58,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: any) {
   const { id } = params;
-  const data = await client.fetch(`*[_id == '${id}']`);
+  const snowboard = await client.fetch(`*[_id == '${id}']`);
   return {
-    props: { data },
+    props: { snowboard },
   };
 }
 
-export default index;
+export default Index;
