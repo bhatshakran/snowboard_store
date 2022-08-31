@@ -44,7 +44,7 @@
   }
 
   .product_details h4,
-  p {
+  .proudct_details p {
     @apply text-lg;
   }
 

@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import urlFor from '../utils/imgBuilder';
 
@@ -60,7 +61,7 @@ const ProductCard: NextPage<Snowboard> = ({ product }: Snowboard) => {
 
       <div>
         <div className='font-poppins font-bold mt-6 text-center '>
-          {product.name}
+          <Link href={`products/${product._id}`}>{product.name}</Link>
         </div>
       </div>
     </div>

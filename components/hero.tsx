@@ -33,7 +33,7 @@ const Hero: FC<Hero> = ({ hero }: Hero) => {
       <div className='txt_section w-full lg:w-1/2 '>
         <div
           ref={txtRef}
-          className='txthero text-4xl sm:text-6xl font-poppins font-extrabold flex flex-col justify-center items-center lg:justify-start lg:text-left lg:items-baseline'
+          className=' text-4xl sm:text-6xl font-poppins font-extrabold flex flex-col justify-center items-center lg:justify-start lg:text-left lg:items-baseline'
         >
           <p>{hero.title}</p>
 

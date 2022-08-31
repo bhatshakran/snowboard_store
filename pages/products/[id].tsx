@@ -56,29 +56,44 @@ const Index: NextPage<Product> = ({ snowboard }) => {
 
         {/* Features */}
         <div className='product_features flex-col '>
-          <h3 className=' text-green-300 opacity-80 font-bold'>Features:</h3>
+          <h3 className=' text-green-300 opacity-80 font-bold'>
+            {product?.features && <>Features:</>}
+          </h3>
 
           <div>
-            <h4>Bend:</h4>
-            <p>{product?.features?.bend && product?.features?.bend}</p>
+            {product?.features?.bend && (
+              <>
+                <h4>Bend:</h4>
+                <p> {product?.features?.bend}</p>
+              </>
+            )}
           </div>
 
           <div>
-            <h4>Base:</h4>
-            <p>{product?.features?.base && product?.features?.base}</p>
+            {product?.features?.base && (
+              <>
+                <h4>Base:</h4>
+                <p> {product?.features?.base}</p>
+              </>
+            )}
           </div>
           <div>
-            <h4>Construction:</h4>
-            <p>
-              {product?.features?.construction &&
-                product?.features?.construction}
-            </p>
+            {product?.features?.construction && (
+              <>
+                <h4>Construction:</h4>
+                <p>{product?.features?.construction}</p>
+              </>
+            )}
           </div>
-          <div></div>
-          <div>
-            <h4>Core:</h4>
 
-            <p>{product?.features?.core && product?.features?.core}</p>
+          <div>
+            {product?.features?.core && (
+              <>
+                <h4>Core:</h4>
+
+                <p>{product?.features?.core}</p>
+              </>
+            )}
           </div>
           <div>
             {product?.features?.reinforcement && (
