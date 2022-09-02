@@ -43,23 +43,17 @@ const Index: NextPage<Product> = ({ snowboard }) => {
         />
       </div>
 
-      <div className='product_details bg-black text-gray-300 p-6 mt-12'>
-        <div>
-          <h4>Brand:</h4>
-          <p>{product?.brand}</p>
-        </div>
-
-        <div>
-          <h4>About:</h4>
-          <p>{product?.description}</p>
-        </div>
-
+      <div className='product_details bg-black relative text-white p-6 mt-12 flex flex-col gap-y-8 md:flex-row md:flex-wrap md:justify-center  font-poppins'>
         {/* Features */}
-        <div className='product_features flex-col '>
+
+        <div className='product_features flex-col items-center md:w-1/2 lg:w-1/3'>
           <h3 className=' text-green-300 opacity-80 font-bold'>
             {product?.features && <>Features:</>}
           </h3>
-
+          <div className=''>
+            <h4>Brand:</h4>
+            <p>{product?.brand}</p>
+          </div>
           <div>
             {product?.features?.bend && (
               <>
@@ -111,6 +105,123 @@ const Index: NextPage<Product> = ({ snowboard }) => {
               </>
             )}
           </div>
+        </div>
+
+        {/* measurements and parameters */}
+        <div className='product_features flex-col md:w-1/2 lg:w-1/4'>
+          <h3 className=' text-green-300 opacity-80 font-bold'>
+            {product?.measurements_and_parameters && <>Measurements:</>}
+          </h3>
+
+          <div>
+            {product?.measurements_and_parameters?.[0].length && (
+              <>
+                <h4>Length:</h4>
+                <p> {product?.measurements_and_parameters?.[0].length}</p>
+              </>
+            )}
+          </div>
+
+          <div>
+            {product?.measurements_and_parameters?.[0].nose_width && (
+              <>
+                <h4>Nose Width:</h4>
+                <p> {product?.measurements_and_parameters?.[0].nose_width}</p>
+              </>
+            )}
+          </div>
+          <div>
+            {product?.measurements_and_parameters?.[0].riders_weight && (
+              <>
+                <h4>Rider&apos;s Weight:</h4>
+                <p>{product?.measurements_and_parameters?.[0].riders_weight}</p>
+              </>
+            )}
+          </div>
+
+          <div>
+            {product?.measurements_and_parameters?.[0].running_length && (
+              <>
+                <h4>Running length:</h4>
+
+                <p>
+                  {product?.measurements_and_parameters?.[0].running_length}
+                </p>
+              </>
+            )}
+          </div>
+          <div>
+            {product?.measurements_and_parameters?.[0].setback && (
+              <>
+                <h4>Setback:</h4>
+                <p>{product?.measurements_and_parameters?.[0].setback}</p>
+              </>
+            )}
+          </div>
+          <div>
+            {product?.measurements_and_parameters?.[0].sidecut_width && (
+              <>
+                <h4>Sidewall:</h4>
+                <p>
+                  {' '}
+                  {product?.measurements_and_parameters?.[0].sidecut_width}
+                </p>
+              </>
+            )}
+          </div>
+
+          <div>
+            {product?.measurements_and_parameters?.[0].sidecut_width && (
+              <>
+                <h4>Sidecut Width:</h4>
+                <p>
+                  {' '}
+                  {product?.measurements_and_parameters?.[0].sidecut_width}
+                </p>
+              </>
+            )}
+          </div>
+
+          <div>
+            {product?.measurements_and_parameters?.[0].size && (
+              <>
+                <h4>Size:</h4>
+                <p> {product?.measurements_and_parameters?.[0].size}</p>
+              </>
+            )}
+          </div>
+
+          <div>
+            {product?.measurements_and_parameters?.[0].stance_width && (
+              <>
+                <h4>Stance Width:</h4>
+                <p> {product?.measurements_and_parameters?.[0].stance_width}</p>
+              </>
+            )}
+          </div>
+
+          <div>
+            {product?.measurements_and_parameters?.[0].tail_width && (
+              <>
+                <h4>Tail Width:</h4>
+                <p> {product?.measurements_and_parameters?.[0].tail_width}</p>
+              </>
+            )}
+          </div>
+
+          <div>
+            {product?.measurements_and_parameters?.[0].waist_width && (
+              <>
+                <h4>Waist Width:</h4>
+                <p> {product?.measurements_and_parameters?.[0].waist_width}</p>
+              </>
+            )}
+          </div>
+        </div>
+        {/* about */}
+        <div className='lg:w-1/3 lg:flex lg:flex-col'>
+          <h3 className='text-green-300 opacity-80 font-bold '>About:</h3>
+          <p className=''>{product?.description}</p>
         </div>
       </div>
     </div>
