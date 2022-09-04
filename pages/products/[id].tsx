@@ -22,36 +22,32 @@ const Index: NextPage<Product> = ({ snowboard }) => {
   console.log(product);
 
   return (
-    <div className='flex justify-center mt-20 flex-col'>
-      <h1 className='text-4xl text-center font-poppins font-extrabold'>
+    <div className='flex justify-center mt-20 flex-col overflow-hidden'>
+      <h1 className='text-4xl text-center font-poppins font-extrabold z-10'>
         {product?.name}
       </h1>
-      <div className='mt-12 text-center'>
+      <div className='mt-16  text-center scale-125 bg h-30'>
         <Image
           src={
             product && product?.img
-              ? urlFor(product.img?.asset?._ref)
-                  .width(390)
-                  .height(930)
-                  .fit('crop')
-                  .crop('top')
-                  .url()
+              ? urlFor(product.img?.asset?._ref).url()
               : '/snowboarder.png'
           }
-          width='200'
-          height='280'
+          width='400'
+          height='330'
           alt={product?.brand}
+          className=' -rotate-90'
         />
       </div>
 
       {/* buy and share options */}
 
-      <div className=' flex justify-between mt-28   py-12 items-end font-poppins mx-8 lg:mx-20'>
+      <div className=' flex justify-between mt-28 py-12 items-end font-poppins mx-8 lg:mx-20'>
         <div className='flex items-center'>
           <Image src='/assets/Coin.png' height={40} width={40} alt='money' />
 
-          <h2 className='text-xl opacity-80 mt-1'>
-            Price: <span className='font-bold text-lg'>$48</span>{' '}
+          <h2 className='text-xl text-black opacity-60 mt-1 font-bold'>
+            Price: $48
           </h2>
         </div>
         <div className='flex gap-x-4 '>
@@ -70,180 +66,138 @@ const Index: NextPage<Product> = ({ snowboard }) => {
         </div>
       </div>
 
-      <div className='product_details relative text-black p-6 mt-36 flex flex-col gap-y-8 md:flex-row md:flex-wrap md:justify-center  font-poppins mx-4 h-auto'>
+      <div className='product_details relative bg-black text-white p-6 mt-20 flex flex-col gap-y-8 md:flex-row md:flex-wrap md:justify-center  font-poppins  h-auto'>
         {/* Features */}
 
         <div className='product_features flex-col items-center mt-12 lg:mt-0 md:w-1/2 lg:w-1/3'>
-          <h3 className=' text-black opacity-40 font-bold'>
+          <h3 className=' text-white  font-bold'>
             {product?.features && <>Features:</>}
           </h3>
-          <div className=''>
+          <div className='add_flex'>
             <h4>Brand:</h4>
             <p>{product?.brand}</p>
           </div>
-          <div>
-            {product?.features?.bend && (
-              <>
-                <h4>Bend:</h4>
-                <p> {product?.features?.bend}</p>
-              </>
-            )}
-          </div>
+          {product?.features?.bend && (
+            <div className='add_flex'>
+              <h4>Bend:</h4>
+              <p> {product?.features?.bend}</p>
+            </div>
+          )}
 
-          <div>
-            {product?.features?.base && (
-              <>
-                <h4>Base:</h4>
-                <p> {product?.features?.base}</p>
-              </>
-            )}
-          </div>
-          <div>
-            {product?.features?.construction && (
-              <>
-                <h4>Construction:</h4>
-                <p>{product?.features?.construction}</p>
-              </>
-            )}
-          </div>
+          {product?.features?.base && (
+            <div className='add_flex'>
+              <h4>Base:</h4>
+              <p> {product?.features?.base}</p>
+            </div>
+          )}
+          {product?.features?.construction && (
+            <div className='add_flex'>
+              <h4>Construction:</h4>
+              <p>{product?.features?.construction}</p>
+            </div>
+          )}
 
-          <div>
-            {product?.features?.core && (
-              <>
-                <h4>Core:</h4>
+          {product?.features?.core && (
+            <div className='add_flex'>
+              <h4>Core:</h4>
 
-                <p>{product?.features?.core}</p>
-              </>
-            )}
-          </div>
-          <div>
-            {product?.features?.reinforcement && (
-              <>
-                <h4>Reinforcement:</h4>
-                <p>{product?.features?.reinforcement}</p>
-              </>
-            )}
-          </div>
-          <div>
-            {product?.features?.sidewall && (
-              <>
-                <h4>Sidewall:</h4>
-                <p> {product?.features?.sidewall}</p>
-              </>
-            )}
-          </div>
+              <p>{product?.features?.core}</p>
+            </div>
+          )}
+          {product?.features?.reinforcement && (
+            <div className='add_flex'>
+              <h4>Reinforcement:</h4>
+              <p>{product?.features?.reinforcement}</p>
+            </div>
+          )}
+          {product?.features?.sidewall && (
+            <div className='add_flex'>
+              <h4>Sidewall:</h4>
+              <p> {product?.features?.sidewall}</p>
+            </div>
+          )}
         </div>
 
         {/* measurements and parameters */}
         <div className='product_features flex-col md:w-1/2 md:mt-12 lg:mt-0 lg:w-1/4'>
-          <h3 className=' text-black opacity-40 font-bold'>
+          <h3 className=' text-white font-bold'>
             {product?.measurements_and_parameters && <>Measurements:</>}
           </h3>
 
-          <div>
-            {product?.measurements_and_parameters?.[0].length && (
-              <>
-                <h4>Length:</h4>
-                <p> {product?.measurements_and_parameters?.[0].length}</p>
-              </>
-            )}
-          </div>
+          {product?.measurements_and_parameters?.[0].length && (
+            <div className='add_flex'>
+              <h4>Length:</h4>
+              <p> {product?.measurements_and_parameters?.[0].length}</p>
+            </div>
+          )}
 
-          <div>
-            {product?.measurements_and_parameters?.[0].nose_width && (
-              <>
-                <h4>Nose Width:</h4>
-                <p> {product?.measurements_and_parameters?.[0].nose_width}</p>
-              </>
-            )}
-          </div>
-          <div>
-            {product?.measurements_and_parameters?.[0].riders_weight && (
-              <>
-                <h4>Rider&apos;s Weight:</h4>
-                <p>{product?.measurements_and_parameters?.[0].riders_weight}</p>
-              </>
-            )}
-          </div>
+          {product?.measurements_and_parameters?.[0].nose_width && (
+            <div className='add_flex'>
+              <h4>Nose Width:</h4>
+              <p> {product?.measurements_and_parameters?.[0].nose_width}</p>
+            </div>
+          )}
+          {product?.measurements_and_parameters?.[0].riders_weight && (
+            <div className='add_flex'>
+              <h4>Rider&apos;s Weight:</h4>
+              <p>{product?.measurements_and_parameters?.[0].riders_weight}</p>
+            </div>
+          )}
 
-          <div>
-            {product?.measurements_and_parameters?.[0].running_length && (
-              <>
-                <h4>Running length:</h4>
+          {product?.measurements_and_parameters?.[0].running_length && (
+            <div className='add_flex'>
+              <h4>Running length:</h4>
 
-                <p>
-                  {product?.measurements_and_parameters?.[0].running_length}
-                </p>
-              </>
-            )}
-          </div>
-          <div>
-            {product?.measurements_and_parameters?.[0].setback && (
-              <>
-                <h4>Setback:</h4>
-                <p>{product?.measurements_and_parameters?.[0].setback}</p>
-              </>
-            )}
-          </div>
-          <div>
-            {product?.measurements_and_parameters?.[0].sidecut_width && (
-              <>
-                <h4>Sidewall:</h4>
-                <p>
-                  {' '}
-                  {product?.measurements_and_parameters?.[0].sidecut_width}
-                </p>
-              </>
-            )}
-          </div>
+              <p>{product?.measurements_and_parameters?.[0].running_length}</p>
+            </div>
+          )}
+          {product?.measurements_and_parameters?.[0].setback && (
+            <div className='add_flex'>
+              <h4>Setback:</h4>
+              <p>{product?.measurements_and_parameters?.[0].setback}</p>
+            </div>
+          )}
+          {product?.measurements_and_parameters?.[0].sidecut_width && (
+            <div className='add_flex'>
+              <h4>Sidecut Width:</h4>
+              <p> {product?.measurements_and_parameters?.[0].sidecut_width}</p>
+            </div>
+          )}
 
-          <div>
-            {product?.measurements_and_parameters?.[0].sidecut_width && (
-              <>
-                <h4>Sidecut Width:</h4>
-                <p>
-                  {' '}
-                  {product?.measurements_and_parameters?.[0].sidecut_width}
-                </p>
-              </>
-            )}
-          </div>
+          {product?.measurements_and_parameters?.[0].sidecut_radius && (
+            <div className='add_flex'>
+              <h4>Sidecut Radius:</h4>
+              <p> {product?.measurements_and_parameters?.[0].sidecut_radius}</p>
+            </div>
+          )}
 
-          <div>
-            {product?.measurements_and_parameters?.[0].size && (
-              <>
-                <h4>Size:</h4>
-                <p> {product?.measurements_and_parameters?.[0].size}</p>
-              </>
-            )}
-          </div>
+          {product?.measurements_and_parameters?.[0].size && (
+            <div className='add_flex'>
+              <h4>Size:</h4>
+              <p> {product?.measurements_and_parameters?.[0].size}</p>
+            </div>
+          )}
 
-          <div>
-            {product?.measurements_and_parameters?.[0].stance_width && (
-              <>
-                <h4>Stance Width:</h4>
-                <p> {product?.measurements_and_parameters?.[0].stance_width}</p>
-              </>
-            )}
-          </div>
+          {product?.measurements_and_parameters?.[0].stance_width && (
+            <div className='add_flex'>
+              <h4>Stance Width:</h4>
+              <p> {product?.measurements_and_parameters?.[0].stance_width}</p>
+            </div>
+          )}
 
-          <div>
-            {product?.measurements_and_parameters?.[0].tail_width && (
-              <>
-                <h4>Tail Width:</h4>
-                <p> {product?.measurements_and_parameters?.[0].tail_width}</p>
-              </>
-            )}
-          </div>
+          {product?.measurements_and_parameters?.[0].tail_width && (
+            <div className='add_flex'>
+              <h4>Tail Width:</h4>
+              <p> {product?.measurements_and_parameters?.[0].tail_width}</p>
+            </div>
+          )}
 
-          <div>
-            {product?.measurements_and_parameters?.[0].waist_width && (
-              <>
-                <h4>Waist Width:</h4>
-                <p> {product?.measurements_and_parameters?.[0].waist_width}</p>
-              </>
-            )}
-          </div>
+          {product?.measurements_and_parameters?.[0].waist_width && (
+            <div className='add_flex'>
+              <h4>Waist Width:</h4>
+              <p> {product?.measurements_and_parameters?.[0].waist_width}</p>
+            </div>
+          )}
         </div>
         {/* about */}
         <div className='lg:w-1/3 lg:flex lg:flex-col'>

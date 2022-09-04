@@ -22,6 +22,7 @@ export interface Snowboard {
     riders_weight?: string;
     setback?: string;
     sidecut_width?: string;
+    sidecut_radius?: string;
     size: string;
     stance_width?: string;
     tail_width?: string;
