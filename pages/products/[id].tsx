@@ -4,6 +4,7 @@ import React from 'react';
 import { client } from '../../utils/client';
 import urlFor from '../../utils/imgBuilder';
 import { Snowboard } from '../shop';
+import { BsShare } from 'react-icons/bs';
 
 interface Product {
   snowboard: Snowboard;
@@ -43,11 +44,37 @@ const Index: NextPage<Product> = ({ snowboard }) => {
         />
       </div>
 
-      <div className='product_details bg-black relative text-white p-6 mt-12 flex flex-col gap-y-8 md:flex-row md:flex-wrap md:justify-center  font-poppins'>
+      {/* buy and share options */}
+
+      <div className=' flex justify-between mt-28   py-12 items-end font-poppins mx-8 lg:mx-20'>
+        <div className='flex items-center'>
+          <Image src='/assets/Coin.png' height={40} width={40} alt='money' />
+
+          <h2 className='text-xl opacity-80 mt-1'>
+            Price: <span className='font-bold text-lg'>$48</span>{' '}
+          </h2>
+        </div>
+        <div className='flex gap-x-4 '>
+          <div>
+            <button className='action_btns relative '>
+              <p>Add to Cart</p>
+              <Image src='/assets/cart.png' height={30} width={30} alt='bag' />
+            </button>
+          </div>
+          <div>
+            <button className='action_btns '>
+              <p>Share</p>
+              <BsShare />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className='product_details relative text-black p-6 mt-36 flex flex-col gap-y-8 md:flex-row md:flex-wrap md:justify-center  font-poppins mx-4 h-auto'>
         {/* Features */}
 
-        <div className='product_features flex-col items-center md:w-1/2 lg:w-1/3'>
-          <h3 className=' text-green-300 opacity-80 font-bold'>
+        <div className='product_features flex-col items-center mt-12 lg:mt-0 md:w-1/2 lg:w-1/3'>
+          <h3 className=' text-black opacity-40 font-bold'>
             {product?.features && <>Features:</>}
           </h3>
           <div className=''>
@@ -108,8 +135,8 @@ const Index: NextPage<Product> = ({ snowboard }) => {
         </div>
 
         {/* measurements and parameters */}
-        <div className='product_features flex-col md:w-1/2 lg:w-1/4'>
-          <h3 className=' text-green-300 opacity-80 font-bold'>
+        <div className='product_features flex-col md:w-1/2 md:mt-12 lg:mt-0 lg:w-1/4'>
+          <h3 className=' text-black opacity-40 font-bold'>
             {product?.measurements_and_parameters && <>Measurements:</>}
           </h3>
 
@@ -220,8 +247,11 @@ const Index: NextPage<Product> = ({ snowboard }) => {
         </div>
         {/* about */}
         <div className='lg:w-1/3 lg:flex lg:flex-col'>
-          <h3 className='text-green-300 opacity-80 font-bold '>About:</h3>
+          <h3 className='text-black opacity-40 font-bold '>About:</h3>
           <p className=''>{product?.description}</p>
+        </div>
+        <div className='absolute -left-10 -top-20'>
+          {/* <Image src='/assets/Toa.png' width='200' height='200' alt='toa' /> */}
         </div>
       </div>
     </div>
