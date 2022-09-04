@@ -26,7 +26,7 @@ const Index: NextPage<Product> = ({ snowboard }) => {
       <h1 className='text-4xl text-center font-poppins font-extrabold z-10'>
         {product?.name}
       </h1>
-      <div className='mt-6 lg:mt-16  text-center scale-125 bg h-30'>
+      <div className='mt-6  text-center scale-125 bg h-30'>
         <Image
           src={
             product && product?.img
@@ -42,7 +42,7 @@ const Index: NextPage<Product> = ({ snowboard }) => {
 
       {/* buy and share options */}
 
-      <div className=' flex flex-col justify-center gap-y-8 sm:gap-y-0  sm:flex-row sm:justify-between mt-28 py-12 items-center sm:items-end font-poppins mx-8 lg:mx-20'>
+      <div className='flex flex-col justify-center gap-y-8 sm:gap-y-0  sm:flex-row sm:justify-between mt-20  py-12 items-center sm:items-end font-poppins mx-8 lg:mx-20'>
         <div className='flex items-center justify-center w-full sm:w-auto'>
           <Image src='/assets/Coin.png' height={40} width={40} alt='money' />
 
