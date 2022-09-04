@@ -26,7 +26,7 @@ const Index: NextPage<Product> = ({ snowboard }) => {
       <h1 className='text-4xl text-center font-poppins font-extrabold z-10'>
         {product?.name}
       </h1>
-      <div className='mt-16  text-center scale-125 bg h-30'>
+      <div className='mt-6 lg:mt-16  text-center scale-125 bg h-30'>
         <Image
           src={
             product && product?.img
@@ -42,23 +42,23 @@ const Index: NextPage<Product> = ({ snowboard }) => {
 
       {/* buy and share options */}
 
-      <div className=' flex justify-between mt-28 py-12 items-end font-poppins mx-8 lg:mx-20'>
-        <div className='flex items-center'>
+      <div className=' flex flex-col justify-center gap-y-8 sm:gap-y-0  sm:flex-row sm:justify-between mt-28 py-12 items-center sm:items-end font-poppins mx-8 lg:mx-20'>
+        <div className='flex items-center justify-center w-full sm:w-auto'>
           <Image src='/assets/Coin.png' height={40} width={40} alt='money' />
 
           <h2 className='text-xl text-black opacity-60 mt-1 font-bold'>
             Price: $48
           </h2>
         </div>
-        <div className='flex gap-x-4 '>
-          <div>
-            <button className='action_btns relative '>
+        <div className='flex flex-col sm:flex-row gap-x-4  w-full sm:w-auto sm:gap-y-0 gap-y-6'>
+          <div className='w-full sm:w-auto'>
+            <button className='action_btns relative w-full'>
               <p>Add to Cart</p>
               <Image src='/assets/cart.png' height={30} width={30} alt='bag' />
             </button>
           </div>
-          <div>
-            <button className='action_btns '>
+          <div className='w-full sm:w-auto'>
+            <button className='action_btns w-full'>
               <p>Share</p>
               <BsShare />
             </button>
@@ -71,7 +71,7 @@ const Index: NextPage<Product> = ({ snowboard }) => {
 
         <div className='product_features flex-col items-center mt-12 lg:mt-0 md:w-1/2 lg:w-1/3'>
           <h3 className=' text-white  font-bold'>
-            {product?.features && <>Features:</>}
+            <>Features:</>
           </h3>
           <div className='add_flex'>
             <h4>Brand:</h4>
@@ -200,8 +200,8 @@ const Index: NextPage<Product> = ({ snowboard }) => {
           )}
         </div>
         {/* about */}
-        <div className='lg:w-1/3 lg:flex lg:flex-col'>
-          <h3 className='text-black opacity-40 font-bold '>About:</h3>
+        <div className='lg:w-1/3 flex flex-col'>
+          <h3 className='text-white font-bold '>About:</h3>
           <p className=''>{product?.description}</p>
         </div>
         <div className='absolute -left-10 -top-20'>
