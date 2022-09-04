@@ -47,14 +47,14 @@ const ProductCard: NextPage<Snowboard> = ({ product }: Snowboard) => {
         src={
           product.img
             ? urlFor(product.img?.asset?._ref)
-                .width(390)
+                /* .width(390)
                 .height(900)
                 .fit('crop')
-                .crop('top')
+                .crop('top') */
                 .url()
-            : '/snowboarder.png'
+            : '/assets/Box.png'
         }
-        width='200'
+        width='250'
         height='280'
         alt={product.brand}
       />
