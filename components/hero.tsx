@@ -37,7 +37,7 @@ const Hero: FC<Hero> = ({ hero }: Hero) => {
         >
           <p>{hero.title}</p>
 
-          <div className='border w-32 text-black text-center border-black text-lg  py-2 sm:text-2xl font-poppins hover:bg-black hover:text-white mt-8 cursor-pointer'>
+          <div className='border w-32 text-black text-center  text-lg  py-2 sm:text-2xl font-poppins hover:bg-black hover:shadow-md hover:text-white hover:border-black mt-8 cursor-pointer'>
             <Link href='/shop'>
               <a>Shop</a>
             </Link>

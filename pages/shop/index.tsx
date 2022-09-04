@@ -33,7 +33,7 @@ export interface Snowboard {
   _id: string;
 }
 
-interface Data {
+export interface Data {
   data: Snowboard[];
 }
 
@@ -58,8 +58,8 @@ const index: NextPage<Data> = ({ data }: Data) => {
         <h2 className='text-4xl font-extrabold font-poppins'>Features</h2>
         <p className='text-4xl font-extrabold font-poppins'>X</p>
         <div className='products_wrapper flex flex-wrap gap-x-4 gap-y-8 px-2 justify-center'>
-          {data.map((data) => {
-            return <ProductCard product={data} key={data._id} />;
+          {data.map((prod) => {
+            return <ProductCard product={prod} key={prod._id} />;
           })}
         </div>
       </div>

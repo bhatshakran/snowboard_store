@@ -3,14 +3,14 @@ import Image from 'next/image';
 import React from 'react';
 import { client } from '../../utils/client';
 import urlFor from '../../utils/imgBuilder';
-import { Snowboard } from '../shop';
+import { Data, Snowboard } from '../shop';
 import { BsShare } from 'react-icons/bs';
 
 interface Product {
   snowboard: Snowboard;
 }
 
-const Index: NextPage<Product> = ({ snowboard }) => {
+const Index = ({ snowboard }: Product) => {
   const [product, setProduct] = React.useState<Snowboard>();
 
   React.useLayoutEffect(() => {
@@ -66,7 +66,7 @@ const Index: NextPage<Product> = ({ snowboard }) => {
         </div>
       </div>
 
-      <div className='product_details relative bg-black text-white p-6 mt-20 flex flex-col gap-y-8 md:flex-row md:flex-wrap md:justify-center  font-poppins  h-auto'>
+      <div className='product_details relative bg-black text-white px-6 mt-20 flex flex-col gap-y-8 md:flex-row md:flex-wrap md:justify-center  font-poppins  h-auto pt-12 pb-24'>
         {/* Features */}
 
         <div className='product_features flex-col items-center mt-12 lg:mt-0 md:w-1/2 lg:w-1/3'>
@@ -207,6 +207,11 @@ const Index: NextPage<Product> = ({ snowboard }) => {
         <div className='absolute -left-10 -top-20'>
           {/* <Image src='/assets/Toa.png' width='200' height='200' alt='toa' /> */}
         </div>
+      </div>
+      <div className='similar_products mt-24'>
+        <h2 className='text-3xl font-bold font-poppins text-center'>
+          Similar products you might like:
+        </h2>
       </div>
     </div>
   );
