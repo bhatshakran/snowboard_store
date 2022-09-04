@@ -7,6 +7,7 @@ import { Snowboard } from '../shop';
 import { BsShare } from 'react-icons/bs';
 import ProductCard from '../../components/product';
 import Footer from '../../components/footer';
+import Ratings from 'react-ratings-declarative';
 
 interface Product {
   snowboard: Snowboard;
@@ -15,8 +16,7 @@ interface Product {
 
 const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
   const [product, setProduct] = React.useState<Snowboard>();
-
-  console.log(similar);
+  const [rating, setRating] = React.useState<number>(3);
 
   React.useLayoutEffect(() => {
     Object.values(snowboard).map((el) => {
@@ -24,7 +24,9 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
     });
   }, [snowboard]);
 
-  console.log(product);
+  const changeRating = () => {
+    console.log('x');
+  };
 
   return (
     <>
@@ -227,6 +229,32 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
             {/* <Image src='/assets/Toa.png' width='200' height='200' alt='toa' /> */}
           </div>
         </div>
+        {/* reviews */}
+        <div className='reviews_ratings mt-24'>
+          <h2 className='text-3xl font-bold font-poppins text-center'>
+            Reviews and ratings
+          </h2>
+          <div className='flex justify-center mt-12'>
+            <Ratings
+              rating={rating}
+              widgetRatedColors='pink'
+              changeRating={changeRating}
+            >
+              <Ratings.Widget widgetHoverColor='pink' />
+              <Ratings.Widget widgetHoverColor='pink' />
+              <Ratings.Widget
+                widgetDimension='60px'
+                widgetHoverColor='pink'
+                svgIconViewBox='0 0 5 5'
+                svgIconPath='M2 1 h1 v1 h1 v1 h-1 v1 h-1 v-1 h-1 v-1 h1 z'
+              />
+              <Ratings.Widget widgetHoverColor='pink' />
+              <Ratings.Widget widgetHoverColor='pink' />
+            </Ratings>
+          </div>
+        </div>
+
+        {/* similar products */}
         <div className='similar_products mt-24'>
           <h2 className='text-3xl font-bold font-poppins text-center'>
             Similar products you might like:
