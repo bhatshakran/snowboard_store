@@ -261,7 +261,7 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
         </div>
 
         {/* similar products */}
-        <div className='similar_products mt-24'>
+        <div className='similar_products mt-24 mb-12'>
           <h2 className='text-3xl font-bold font-poppins text-center'>
             Similar products you might like:
           </h2>

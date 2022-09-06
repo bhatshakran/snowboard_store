@@ -12,12 +12,12 @@ const Features: FC<FeaturesType> = ({ features }) => {
         <h1 className='text-5xl font-poppins font-bold'>Features</h1>
         <p className='text-4xl mt-8'>x</p>
       </div>
-      <div className='features_cards flex flex-col md:flex-row my-12 mx-4 sm:mx-16 justify-center gap-x-4 gap-y-6'>
+      <div className='features_cards flex my-12 mx-4 sm:mx-16 justify-center gap-x-1 gap-y-6'>
         {features?.map((feature, idx) => {
           return (
             <div
               key={idx}
-              className='w-full md:w-1/3 flex flex-col rounded-md bg-gray-200 gap-y-4 pb-4 cursor-pointer hover:opacity-90 hover:text-stone-800'
+              className='w-1/2 sm:w-1/3 flex flex-col rounded-md bg-gray-200 gap-y-4 pb-4 cursor-pointer hover:opacity-90 hover:text-stone-800'
             >
               <Image
                 src={feature.img}

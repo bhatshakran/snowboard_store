@@ -36,21 +36,23 @@ interface Snowboard {
 
 const ProductCard: NextPage<Snowboard> = ({ product }: Snowboard) => {
   return (
-    <div className='border border-gray-100 shadow-md p-2 w-52 rounded-md'>
+    <div className='border w-32 sm:w-56 border-gray-100 shadow-md p-1 sm:p-2  rounded-md'>
       <Image
         src={
           product.img
             ? urlFor(product.img?.asset?._ref).url()
             : '/assets/Box.png'
         }
-        width='250'
-        height='280'
+        width='220'
+        height='240'
         alt={product.brand}
       />
 
       <div>
-        <div className='font-poppins font-bold mt-6 text-center '>
-          <Link href={`/products/${product._id}`}>{product.name}</Link>
+        <div className='font-poppins font-bold mt-2 sm:mt-6 text-center '>
+          <Link href={`/products/${product._id}`}>
+            <a className=' text-xs'>{product.name}</a>
+          </Link>
         </div>
       </div>
     </div>
