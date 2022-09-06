@@ -35,23 +35,12 @@ interface Snowboard {
 }
 
 const ProductCard: NextPage<Snowboard> = ({ product }: Snowboard) => {
-  console.log(product);
-  if (product.img) {
-    console.log(
-      urlFor(product.img?.asset?._ref).width(500).height(300).fit('scale').url()
-    );
-  }
   return (
     <div className='border border-gray-100 shadow-md p-2 w-52 rounded-md'>
       <Image
         src={
           product.img
-            ? urlFor(product.img?.asset?._ref)
-                /* .width(390)
-                .height(900)
-                .fit('crop')
-                .crop('top') */
-                .url()
+            ? urlFor(product.img?.asset?._ref).url()
             : '/assets/Box.png'
         }
         width='250'
@@ -61,7 +50,7 @@ const ProductCard: NextPage<Snowboard> = ({ product }: Snowboard) => {
 
       <div>
         <div className='font-poppins font-bold mt-6 text-center '>
-          <Link href={`products/${product._id}`}>{product.name}</Link>
+          <Link href={`/products/${product._id}`}>{product.name}</Link>
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
   const [product, setProduct] = React.useState<Snowboard>();
   const [rating, setRating] = React.useState<number>(3);
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     Object.values(snowboard).map((el) => {
       setProduct(el);
     });
@@ -37,7 +37,7 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
         <div className='mt-6  text-center scale-125 bg h-30'>
           <Image
             src={
-              product && product?.img
+              product && product.img
                 ? urlFor(product.img?.asset?._ref).url()
                 : '/snowboarder.png'
             }
