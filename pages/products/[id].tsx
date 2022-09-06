@@ -52,7 +52,13 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
 
         <div className='flex flex-col justify-center gap-y-8 sm:gap-y-0  sm:flex-row sm:justify-between mt-20  py-12 items-center sm:items-end font-poppins mx-8 lg:mx-20'>
           <div className='flex items-center justify-center w-full sm:w-auto'>
-            <Image src='/assets/Coin.png' height={40} width={40} alt='money' />
+            <Image
+              priority={true}
+              src='/assets/Coin.png'
+              height={40}
+              width={40}
+              alt='money'
+            />
 
             <h2 className='text-xl text-black opacity-60 mt-1 font-bold'>
               Price: $48
