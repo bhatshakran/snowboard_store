@@ -104,6 +104,10 @@
 
     background: rgba(255, 255, 255, 0.8);
   }
+
+  .hero_txt {
+    visibility: hidden;
+  }
   @media only screen and (min-width: 1025px) {
     .overlay_txt > p {
       font-size: 16px !important;
