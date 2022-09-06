@@ -37,10 +37,11 @@ export interface Data {
   data: Snowboard[];
 }
 
-const index: NextPage<Data> = ({ data }: Data) => {
+const Index: NextPage<Data> = ({ data }: Data) => {
+  React.useEffect(() => {}, []);
   return (
-    <div>
-      <div className='hero_shop  w-full relative z-0'>
+    <div id='#hero_wrapper'>
+      <div id='hero_shop' className='hero_shop  w-full relative z-0'>
         <Image
           src='/shop.jpeg'
           alt='shop'
@@ -73,4 +74,4 @@ export async function getStaticProps() {
   };
 }
 
-export default index;
+export default Index;

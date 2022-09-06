@@ -31,10 +31,10 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
   return (
     <>
       <div className='flex justify-center mt-20 flex-col overflow-hidden'>
-        <h1 className='text-4xl text-center font-poppins font-extrabold z-10'>
+        <h1 className='text-3xl sm:text-4xl text-center font-poppins font-extrabold z-10'>
           {product?.name}
         </h1>
-        <div className='mt-6  text-center scale-125 bg h-30'>
+        <div className='mt-6  text-center sm:scale-125 bg h-30'>
           <Image
             src={
               product && product.img
