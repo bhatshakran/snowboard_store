@@ -1,11 +1,13 @@
 import gsap from 'gsap';
 import Link from 'next/link';
+import ScrollTrigger from 'gsap/src/ScrollTrigger';
 import React from 'react';
 
 const Footer = () => {
   const footerRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     gsap.set(footerRef.current, { scale: 0.9, opacity: 0 });
     gsap.to(footerRef.current, {
       scale: 1,
