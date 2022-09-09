@@ -17,16 +17,40 @@ interface Product {
 const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
   const [product, setProduct] = React.useState<Snowboard>();
   const [rating, setRating] = React.useState<number>(3);
-
-  React.useEffect(() => {
-    Object.values(snowboard).map((el) => {
-      setProduct(el);
-    });
-  }, [snowboard]);
+  const [buttonText, changeButtonText] = React.useState<string>('Add to Cart');
 
   const changeRating = () => {
     console.log('x');
   };
+
+  const addToCart = () => {
+    if (product?.name) {
+      const cartItem: {
+        name?: string;
+        image?: string;
+      } = {};
+      cartItem.name = product.name;
+      if (product.img) {
+        cartItem.image = urlFor(product.img?.asset?._ref).url();
+      }
+
+      const items = (() => {
+        const fieldValue = localStorage.getItem('cart-items');
+        return fieldValue === null ? [] : JSON.parse(fieldValue);
+      })();
+      items.push({ cartItem });
+      localStorage.setItem('cart-items', JSON.stringify(items));
+      changeButtonText('Added to Cart');
+    }
+  };
+
+  React.useEffect(() => {
+    changeButtonText('Add to Cart');
+    Object.values(snowboard).map((el) => {
+      setProduct(el);
+    });
+    () => changeButtonText('Add to Cart');
+  }, [snowboard]);
 
   return (
     <>
@@ -66,8 +90,11 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
           </div>
           <div className='flex flex-col sm:flex-row gap-x-4  w-full sm:w-auto sm:gap-y-0 gap-y-6'>
             <div className='w-full sm:w-auto'>
-              <button className='action_btns relative w-full'>
-                <p>Add to Cart</p>
+              <button
+                className='action_btns relative w-full'
+                onClick={addToCart}
+              >
+                <p>{buttonText}</p>
                 <Image
                   src='/assets/cart.png'
                   height={30}

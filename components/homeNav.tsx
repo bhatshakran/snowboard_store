@@ -101,8 +101,8 @@ const HomeNav: NextPage<DocLinks> = ({ links }) => {
           `}
         >
           <div className=' mx-2 text-white'>
-            <Link href='/'>
-              <a>search</a>
+            <Link href='/cart'>
+              <a>cart</a>
             </Link>
           </div>
 
