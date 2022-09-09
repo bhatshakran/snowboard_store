@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { AiFillDelete } from 'react-icons/ai';
 
-const CartItem = ({ info, updateUi }) => {
+const CartItem = ({ info, updateUi }: any) => {
   const { cartItem } = info;
   const cartitemRef = React.useRef<HTMLDivElement>(null);
   const changeColor = () => {
