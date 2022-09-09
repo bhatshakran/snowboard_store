@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 import Link from 'next/link';
-import ScrollTrigger from 'gsap/src/ScrollTrigger';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import React from 'react';
 
 const Footer = () => {
