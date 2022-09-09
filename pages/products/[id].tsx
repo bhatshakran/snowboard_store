@@ -25,22 +25,35 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
 
   const addToCart = () => {
     if (product?.name) {
-      const cartItem: {
+      const addedItem: {
         name?: string;
         image?: string;
       } = {};
-      cartItem.name = product.name;
+      addedItem.name = product.name;
       if (product.img) {
-        cartItem.image = urlFor(product.img?.asset?._ref).url();
+        addedItem.image = urlFor(product.img?.asset?._ref).url();
       }
 
-      const items = (() => {
-        const fieldValue = localStorage.getItem('cart-items');
-        return fieldValue === null ? [] : JSON.parse(fieldValue);
-      })();
-      items.push({ cartItem });
-      localStorage.setItem('cart-items', JSON.stringify(items));
-      changeButtonText('Added to Cart');
+      let parsedLsItems;
+      const lsItems = localStorage.getItem('cart-items');
+      if (lsItems) {
+        parsedLsItems = JSON.parse(lsItems);
+      }
+
+      if (!lsItems) {
+        localStorage.setItem('cart-items', JSON.stringify([addedItem]));
+      } else {
+        const exists = parsedLsItems.some((item: any) => {
+          if (item.name === addedItem.name) return true;
+          else return false;
+        });
+        if (!exists) {
+          localStorage.setItem(
+            'cart-items',
+            JSON.stringify([...parsedLsItems, addedItem])
+          );
+        } else return;
+      }
     }
   };
 

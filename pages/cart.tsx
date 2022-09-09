@@ -8,7 +8,7 @@ const Cart = () => {
     if (localStorage.getItem('cart-items')) {
       const products = localStorage.getItem('cart-items');
       if (products) {
-        JSON.parse(products).forEach((item: any) => {
+        JSON.parse(products).forEach((item: any, idx: number) => {
           setCartItems((prevState: any) => [...prevState, item]);
         });
       }

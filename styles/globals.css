@@ -20,6 +20,23 @@
     outline: none;
   }
 
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .value_button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 50%;
+    @apply text-center;
+  }
+
   @font-face {
     font-family: 'Poppins';
     src: url('./fonts/Poppins/Poppins-Regular.ttf') format('truetype');
