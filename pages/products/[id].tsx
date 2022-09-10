@@ -19,10 +19,15 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
   const [product, setProduct] = React.useState<Snowboard>();
   const [rating, setRating] = React.useState<number>(3);
   const [buttonText, changeButtonText] = React.useState<string>('Add to Cart');
+  const [buttonDisabled, setDisableButton] = React.useState<boolean>();
 
   const changeRating = () => {
     console.log('x');
   };
+  /*  function disableButton() {
+    console.log(buttonText);
+    return buttonText === 'Add to Cart' ? false : true;
+  } */
 
   const addToCart = () => {
     if (product?.name) {
@@ -65,8 +70,10 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
 
     if (exists) {
       changeButtonText('Added to Cart');
+      setDisableButton(true);
     } else {
       changeButtonText('Add to Cart');
+      setDisableButton(false);
     }
   }, [product?.name]);
 
@@ -75,7 +82,6 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
     Object.values(snowboard).map((el) => {
       setProduct(el);
     });
-    () => changeButtonText('Add to Cart');
   }, [itemExistsInCart, snowboard]);
 
   return (
@@ -117,8 +123,9 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
           <div className='flex flex-col sm:flex-row gap-x-4  w-full sm:w-auto sm:gap-y-0 gap-y-6'>
             <div className='w-full sm:w-auto'>
               <button
-                className='action_btns relative w-full'
+                className='action_btns relative w-full disabled:bg-black disabled:text-white disabled:shadow-none disabled:border-none'
                 onClick={addToCart}
+                disabled={buttonDisabled}
               >
                 <p>{buttonText}</p>
                 <Image
