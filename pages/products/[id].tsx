@@ -8,6 +8,7 @@ import { BsShare } from 'react-icons/bs';
 import ProductCard from '../../components/product';
 import Footer from '../../components/footer';
 import Ratings from 'react-ratings-declarative';
+import itemExists from '../../utils/hooks/itemExists';
 
 interface Product {
   snowboard: Snowboard;
@@ -42,28 +43,40 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
 
       if (!lsItems) {
         localStorage.setItem('cart-items', JSON.stringify([addedItem]));
+        changeButtonText('Added to Cart');
       } else {
-        const exists = parsedLsItems.some((item: any) => {
-          if (item.name === addedItem.name) return true;
-          else return false;
-        });
+        const exists = itemExists(addedItem?.name);
         if (!exists) {
           localStorage.setItem(
             'cart-items',
             JSON.stringify([...parsedLsItems, addedItem])
           );
+          changeButtonText('Added to Cart');
         } else return;
       }
     }
   };
 
+  const itemExistsInCart = React.useCallback(() => {
+    let exists;
+    if (product?.name) {
+      exists = itemExists(product?.name);
+    }
+
+    if (exists) {
+      changeButtonText('Added to Cart');
+    } else {
+      changeButtonText('Add to Cart');
+    }
+  }, [product?.name]);
+
   React.useEffect(() => {
-    changeButtonText('Add to Cart');
+    itemExistsInCart();
     Object.values(snowboard).map((el) => {
       setProduct(el);
     });
     () => changeButtonText('Add to Cart');
-  }, [snowboard]);
+  }, [itemExistsInCart, snowboard]);
 
   return (
     <>

@@ -18,7 +18,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
-    "react-ratings-declarative": "^3.4.1"
+    "react-ratings-declarative": "^3.4.1",
+    "ts-invariant": "^0.10.3"
   },
   "devDependencies": {
     "@types/node": "18.7.11",
