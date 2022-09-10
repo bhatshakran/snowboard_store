@@ -24,10 +24,6 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
   const changeRating = () => {
     console.log('x');
   };
-  /*  function disableButton() {
-    console.log(buttonText);
-    return buttonText === 'Add to Cart' ? false : true;
-  } */
 
   const addToCart = () => {
     if (product?.name) {
@@ -49,6 +45,7 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
       if (!lsItems) {
         localStorage.setItem('cart-items', JSON.stringify([addedItem]));
         changeButtonText('Added to Cart');
+        setDisableButton(true);
       } else {
         const exists = itemExists(addedItem?.name);
         if (!exists) {
@@ -57,6 +54,7 @@ const Index: NextPage<Product> = ({ snowboard, similar }: Product) => {
             JSON.stringify([...parsedLsItems, addedItem])
           );
           changeButtonText('Added to Cart');
+          setDisableButton(true);
         } else return;
       }
     }
