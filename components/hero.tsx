@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
+import { shimmer, toBase64 } from '../utils/shimmer';
 
 interface Hero {
   hero: { title: string; body: string };
@@ -53,6 +54,10 @@ const Hero: FC<Hero> = ({ hero }: Hero) => {
           alt='snowboarder'
           height={'400'}
           width={'500'}
+          placeholder='blur'
+          blurDataURL={`data:image/svg+xml;base64,${toBase64(
+            shimmer(500, 400)
+          )}`}
         />
       </div>
     </div>
