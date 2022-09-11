@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import { client } from '../../utils/client';
 import Image from 'next/image';
 import ProductCard from '../../components/product';
+import Shop from '../../public/shop.jpeg';
 
 export interface Snowboard {
   brand: string;
@@ -43,7 +44,7 @@ const Index: NextPage<Data> = ({ data }: Data) => {
     <div id='#hero_wrapper'>
       <div id='hero_shop' className='hero_shop  w-full relative z-0'>
         <Image
-          src='/shop.jpeg'
+          src={Shop}
           alt='shop'
           layout='responsive'
           width={'100%'}
