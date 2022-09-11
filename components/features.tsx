@@ -40,12 +40,12 @@ const Features: FC<FeaturesType> = ({ features }) => {
 };
 Features.defaultProps = {
   features: [
-    { img: '/features/mountains.jpg', text: 'Something out of the blue' },
+    { img: '/features/mountains.webp', text: 'Something out of the blue' },
     {
-      img: '/features/skicold.jpg',
+      img: '/features/skicold.webp',
       text: 'Adrenaline rush and the cold wind!',
     },
-    { img: '/features/supplies.jpg', text: 'Top class skiing supplies' },
+    { img: '/features/supplies.webp', text: 'Top class skiing supplies' },
   ],
 };
 export default Features;

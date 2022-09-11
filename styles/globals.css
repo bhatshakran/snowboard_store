@@ -40,6 +40,7 @@
   @font-face {
     font-family: 'Poppins';
     src: url('./fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+    font-display: swap;
   }
   body {
     @apply debug-screens;
@@ -103,7 +104,7 @@
 
   .mountain_card {
     height: 800px;
-    background: url('../public/snow_mountains.jpg');
+    background: url('../public/snow_mountains.webp');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

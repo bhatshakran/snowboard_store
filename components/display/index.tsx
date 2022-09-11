@@ -74,31 +74,31 @@ Display.defaultProps = {
   products: [
     {
       name: '5150 Starlet 2010/2011',
-      img_src: '/products/starlet.jpeg',
+      img_src: '/products/starlet.webp',
     },
     {
       name: '5150 Nomad 2010/2011',
-      img_src: '/products/nomad.jpeg',
+      img_src: '/products/nomad.webp',
     },
     {
       name: '5150 Shooter 2010/2011',
-      img_src: '/products/shooter.jpeg',
+      img_src: '/products/shooter.webp',
     },
     {
       name: '5150 Cypress 2010/2011',
-      img_src: '/products/cypress.jpeg',
+      img_src: '/products/cypress.webp',
     },
     {
       name: '5150 Prism 2010/2011',
-      img_src: '/products/prism.jpeg',
+      img_src: '/products/prism.webp',
     },
     {
       name: '5150 Stroke 2010/2011',
-      img_src: '/products/stroke.jpeg',
+      img_src: '/products/stroke.webp',
     },
     {
       name: '5150 Sienna 2010/2011',
-      img_src: '/products/sienna.jpeg',
+      img_src: '/products/sienna.webp',
     },
   ],
 };

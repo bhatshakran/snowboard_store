@@ -49,7 +49,7 @@ const Hero: FC<Hero> = ({ hero }: Hero) => {
         className='img_section w-full lg:w-1/2  flex justify-center'
       >
         <Image
-          src='/snowboarder.jpg'
+          src='/snowboarder.webp'
           alt='snowboarder'
           height={'400'}
           width={'500'}
