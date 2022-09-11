@@ -40,12 +40,18 @@ const Features: FC<FeaturesType> = ({ features }) => {
 };
 Features.defaultProps = {
   features: [
-    { img: '/features/mountains.webp', text: 'Something out of the blue' },
     {
-      img: '/features/skicold.webp',
+      img: 'https://res.cloudinary.com/duuo1ctgy/image/upload/s--4juQSdiW--/v1662901133/snowboardstore/ipohcix8gxcxgbmgjtld.webp',
+      text: 'Something out of the blue',
+    },
+    {
+      img: 'https://res.cloudinary.com/duuo1ctgy/image/upload/s--NTMSuCL6--/v1662901132/snowboardstore/fxfnml8nvjjhmkjdg1jb.webp',
       text: 'Adrenaline rush and the cold wind!',
     },
-    { img: '/features/supplies.webp', text: 'Top class skiing supplies' },
+    {
+      img: 'https://res.cloudinary.com/duuo1ctgy/image/upload/s--AR3g7tWO--/v1662901137/snowboardstore/vfyw0e1vgpu7tb3hkxl9.webp',
+      text: 'Top class skiing supplies',
+    },
   ],
 };
 export default Features;
