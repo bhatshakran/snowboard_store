@@ -50,7 +50,7 @@ const Hero: FC<Hero> = ({ hero }: Hero) => {
         className='img_section w-full lg:w-1/2  flex justify-center'
       >
         <Image
-          src='/snowboarder.webp'
+          src='https://res.cloudinary.com/duuo1ctgy/image/upload/s--f8ApFW-q--/v1662901104/snowboardstore/zk3oc0gqls6rkmduc2qt.webp'
           alt='snowboarder'
           height={'400'}
           width={'500'}
