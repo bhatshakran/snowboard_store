@@ -21,28 +21,36 @@ const MountainCard = () => {
         toggleActions: 'restart none none none',
       },
     });
-  }, []) */ return (
-    <div className='  mt-40 mb-44 flex justify-center overflow-hidden w-full'>
-      <div className='flex max-w-4xl gap-4 justify-center text-left'>
-        <div className='flex flex-col items-center  gap-4 w-1/3 border-r px-4'>
-          <LocalShippingIcon className=' text-green-500' />
-          <h3 className='text-xl font-poppins font-bold'>Free shipping</h3>
-          <p className='font-poppins font-light'>
+  }, []) */
+  const cardClasses = `flex flex-col items-center  gap-4 w-full md:w-1/3 md:border-r px-4`;
+  const cardFlexContainerClasses = `flex flex-col md:flex-row max-w-sm  md:max-w-4xl gap-y-12 md:gap-4 justify-center text-left`;
+  const wrapperClasses = ` mt-40 mb-44 flex justify-center overflow-hidden w-full`;
+  const iconClasses = `text-green-500`;
+  const h3Classes = `text-xl font-poppins font-bold`;
+  const pClasses = `font-poppins font-light`;
+
+  return (
+    <div className={wrapperClasses}>
+      <div className={cardFlexContainerClasses}>
+        <div className={cardClasses}>
+          <LocalShippingIcon className={iconClasses} />
+          <h3 className={h3Classes}>Free shipping</h3>
+          <p className={pClasses}>
             Order anything above 30$ and get free shipping on our products.
           </p>
         </div>
-        <div className='flex flex-col items-center  gap-4 w-1/3 border-r px-4'>
-          <KeyboardReturnIcon className=' text-green-500' />
-          <h3 className='text-xl font-poppins font-bold'>30 Day Return </h3>
-          <p className='font-poppins font-light'>
+        <div className={cardClasses}>
+          <KeyboardReturnIcon className={iconClasses} />
+          <h3 className={h3Classes}>30 Day Return </h3>
+          <p className={pClasses}>
             When returning the items, we do a refund of the order.You can also
             exchange the order with different item.
           </p>
         </div>
-        <div className='flex flex-col items-center gap-4 w-1/3  px-4'>
-          <StarIcon className=' text-green-500 ' />
-          <h3 className='text-xl font-poppins font-bold'>Best Quality</h3>
-          <p className='font-poppins font-light'>
+        <div className={`${cardClasses} border-none`}>
+          <StarIcon className={iconClasses} />
+          <h3 className={h3Classes}>Best Quality</h3>
+          <p className={pClasses}>
             We only sell items from renowed and top quality brands.We also
             ensure quality packing and shipping.
           </p>
