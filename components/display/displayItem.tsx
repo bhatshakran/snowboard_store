@@ -22,7 +22,7 @@ const DisplayItem: FC<DetailsType> = ({ details }) => {
           />
         </div>
 
-        <div className=' text-center mt-8 px-4'>
+        <div className=' text-center mt-8 px-4 pb-3'>
           <h4 className='font-poppins font-bold'>{details.name}</h4>
           <div className=' text-green-500'>
             <Link href='/'>View Details</Link>

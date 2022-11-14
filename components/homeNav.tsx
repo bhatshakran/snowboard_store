@@ -54,8 +54,8 @@ const HomeNav: NextPage<DocLinks> = ({ links }) => {
   };
 
   return (
-    <div ref={navRef} className='nav'>
-      <div className=' bg-black h-auto w-full flex  sm:flex-row flex-wrap  items-center'>
+    <div ref={navRef} className='nav flex justify-center w-full  bg-black'>
+      <div className=' h-auto w-full flex  sm:flex-row flex-wrap  items-center max-w-6xl'>
         <div className=' flex items-center justify-start  w-1/2 sm:w-20 h-full '>
           <Link href='/'>
             <a>

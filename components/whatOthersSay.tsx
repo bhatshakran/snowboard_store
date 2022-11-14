@@ -7,7 +7,7 @@ interface FeaturesType {
 
 const WhatOthersSay: FC<FeaturesType> = ({ customersSay }) => {
   return (
-    <div className='text-black w-full flex justify-center px-2 md:px-0'>
+    <div className='text-black w-full flex justify-center px-2 md:px-0 '>
       <div className='max-w-6xl'>
         <div className='text-center'>
           <h1 className='text-5xl font-poppins font-bold'>
