@@ -37,7 +37,7 @@ const Display: FC<ProductType> = ({ products }) => {
 
   return (
     <div className='w-full flex justify-center'>
-      <div className='flex flex-col gap-12 items-center justify-center max-w-4xl'>
+      <div className='flex flex-col gap-12 items-center justify-center max-w-6xl'>
         <div className='mt-16 text-center  '>
           <h1 className='text-5xl font-bold font-poppins'>Trending products</h1>
 

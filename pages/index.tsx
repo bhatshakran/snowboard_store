@@ -3,10 +3,10 @@ import React from 'react';
 import Head from 'next/head';
 import Display from '../components/display';
 import Hero from '../components/hero';
-import MountainCard from '../components/mountainCard';
 import { ContentType } from '../types';
-import Features from '../components/features';
 import Footer from '../components/footer';
+import WhatOthersSay from '../components/whatOthersSay';
+import Features from '../components/features';
 
 const Home: NextPage<ContentType> = ({ content }) => {
   return (
@@ -20,8 +20,8 @@ const Home: NextPage<ContentType> = ({ content }) => {
         <Hero hero={content.hero} />
       </div>
       <Display />
-      <MountainCard />
       <Features />
+      <WhatOthersSay />
       <Footer />
     </div>
   );
