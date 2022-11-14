@@ -7,7 +7,7 @@ interface FeaturesType {
 
 const WhatOthersSay: FC<FeaturesType> = ({ customersSay }) => {
   return (
-    <div className='text-black w-full flex justify-center'>
+    <div className='text-black w-full flex justify-center px-2 md:px-0'>
       <div className='max-w-6xl'>
         <div className='text-center'>
           <h1 className='text-5xl font-poppins font-bold'>
@@ -15,13 +15,13 @@ const WhatOthersSay: FC<FeaturesType> = ({ customersSay }) => {
           </h1>
           <p className='text-4xl mt-8'>x</p>
         </div>
-        <div className=' flex my-12 mx-4 sm:mx-16 justify-center gap-x-4 gap-y-6'>
+        <div className=' flex flex-wrap my-12 mx-4 sm:mx-16 justify-center  gap-y-24'>
           {customersSay &&
             customersSay.map((item: any, idx: number) => {
               return (
                 <div
                   key={idx}
-                  className='px-3 flex flex-col items-center gap-3'
+                  className='px-5 w-full sm:w-1/2 md:w-1/3 flex flex-col items-center gap-3'
                 >
                   <Image
                     src={item.img}
