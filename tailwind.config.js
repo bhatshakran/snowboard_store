@@ -10,7 +10,7 @@ module.exports = {
       poppins: ['Poppins'],
     },
   },
-  plugins: [require('tailwindcss-debug-screens')],
+  plugins: [],
   compilerOptions: {
     allowJs: true,
     allowsyntheticdefaultimports: true,
